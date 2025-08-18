@@ -1,6 +1,7 @@
 extends Control
 
 var lines = []
+var buffer = []
 var typing_speed := 0.055
 var line_pause := 1
 var cursor_blink_speed := 0.35
@@ -22,7 +23,8 @@ func _ready():
 
 func display(content):
 	if visible:
-		await timer.timeout
+		buffer.append(content)
+		return
 	show()
 	lines = content
 	_start_typing()
@@ -98,3 +100,5 @@ func _process(delta):
 
 func _on_timer_timeout():
 	hide()
+	if not buffer.is_empty():
+		display(buffer.pop_front())
