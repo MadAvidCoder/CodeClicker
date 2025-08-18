@@ -300,6 +300,9 @@ var upgrades = [
 	}
 ]
 
+var recent_clicks_timestamps = []
+var recent_lines_timestamps = []
+
 var clicks = 0
 var score = 0
 var total_score = 0
@@ -347,6 +350,10 @@ func check_unlock(requirements: Dictionary) -> bool:
 			return auto_lines_written >= requirements["value"]
 		"viewed_help":
 			return help_viewed
+		"clicks_in_time":
+			return count_time(recent_clicks_timestamps, requirements["timeframe"]) >= requirements["value"]
+		"code_lines_in_time":
+			return count_time(recent_lines_timestamps, requirements["timeframe"]) >= requirements["value"]
 	return false
 
 func check_achievements() -> void:
@@ -362,3 +369,12 @@ func _on_texture_button_pressed() -> void:
 	score += 1
 	total_score += 1
 	clicks += 1
+	recent_clicks_timestamps.append(Time.get_ticks_msec() / 1000.0)
+	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
+
+func count_time(timestamps, timeframe):
+	timestamps = timestamps.duplicate()
+	var now = Time.get_ticks_msec() / 1000.0
+	while timestamps.size() > 0 and now - timestamps[0] > timeframe:
+		timestamps.pop_front()
+	return timestamps.size()
