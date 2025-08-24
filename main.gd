@@ -318,11 +318,17 @@ var help_viewed = false
 @onready var subviewport := $AchievementDisplay/SubViewport
 @onready var texture_rect := $AchievementDisplay/TextureRect
 @onready var display = $AchievementDisplay
+@onready var item = preload("res://item.tscn")
+@onready var shop_container = $Shop/ScrollContainer/VBoxContainer
 
 func _ready():
 	var mat = texture_rect.material
 	if mat and mat is ShaderMaterial:
 		mat.set_shader_parameter("rect_size", subviewport.size)
+	for upgrade in upgrades:
+		var i = item.instantiate()
+		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"])
+		shop_container.add_child(i)
 
 func _process(delta: float) -> void:
 	label.text = str(score) + " Lines"
