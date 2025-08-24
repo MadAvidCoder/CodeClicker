@@ -303,6 +303,7 @@ var upgrades = [
 var recent_clicks_timestamps = []
 var recent_lines_timestamps = []
 
+var power = 1
 var clicks = 0
 var score = 0
 var total_score = 0
@@ -313,6 +314,7 @@ var max_auto_level = 0
 var prestige_count = 0
 var auto_lines_written = 0
 var help_viewed = false
+var auto_per_sec = 0
 
 @onready var label = $Label
 @onready var subviewport := $AchievementDisplay/SubViewport
@@ -327,11 +329,11 @@ func _ready():
 		mat.set_shader_parameter("rect_size", subviewport.size)
 	for upgrade in upgrades:
 		var i = item.instantiate()
-		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"])
+		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"])
 		shop_container.add_child(i)
 
 func _process(delta: float) -> void:
-	label.text = str(score) + " Lines"
+	label.text = str(int(floor(score))) + " Lines"
 	check_achievements()
 
 func check_unlock(requirements: Dictionary) -> bool:
@@ -372,8 +374,8 @@ func check_achievements() -> void:
 				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]])
 
 func _on_texture_button_pressed() -> void:
-	score += 1
-	total_score += 1
+	score += 1 * power
+	total_score += 1 * power
 	clicks += 1
 	recent_clicks_timestamps.append(Time.get_ticks_msec() / 1000.0)
 	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
