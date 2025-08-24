@@ -22,6 +22,7 @@ func _ready():
 	label.bbcode_enabled = true
 
 func display(content):
+	label.text = ""
 	if visible:
 		buffer.append(content)
 		return
@@ -100,5 +101,6 @@ func _process(delta):
 
 func _on_timer_timeout():
 	hide()
+	label.text = ""
 	if not buffer.is_empty():
 		display(buffer.pop_front())
