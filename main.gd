@@ -315,6 +315,7 @@ var prestige_count = 0
 var auto_lines_written = 0
 var help_viewed = false
 var auto_per_sec = 0
+var auto_speed = 1
 
 @onready var label = $Label
 @onready var subviewport := $AchievementDisplay/SubViewport
@@ -386,3 +387,7 @@ func count_time(timestamps, timeframe):
 	while timestamps.size() > 0 and now - timestamps[0] > timeframe:
 		timestamps.pop_front()
 	return timestamps.size()
+
+func _on_auto_coder_timer_timeout() -> void:
+	score += auto_per_sec
+	total_score += auto_per_sec

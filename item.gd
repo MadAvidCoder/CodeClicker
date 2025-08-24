@@ -1,6 +1,7 @@
 extends Panel
 
 @onready var main = $"../../../.."
+@onready var auto_timer = $"../../../../AutoCoderTimer"
 
 var cost = INF
 var effect
@@ -24,5 +25,9 @@ func _on_buy_button_pressed() -> void:
 			match e:
 				"click_power": main.power += effect[e]
 				"click_power_multiplier": main.power *= effect[e]
-				"auto_code_per_sec": main.auto_per_sec += effect[e]
-				"auto_code_multiplier": main.auto_per_sec *= effect[e] 
+				"auto_code_per_sec":
+					main.auto_per_sec += effect[e]
+					main.auto_coders_bought += effect[e]
+				"auto_code_multiplier":
+					main.auto_speed /= effect[e]
+					auto_timer.wait_time = main.auto_speed

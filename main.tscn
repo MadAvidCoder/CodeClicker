@@ -175,6 +175,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="AutoCoderTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
 [connection signal="timeout" from="AchievementDisplay/Timer" to="AchievementDisplay" method="_on_timer_timeout"]
+[connection signal="timeout" from="AutoCoderTimer" to="." method="_on_auto_coder_timer_timeout"]
