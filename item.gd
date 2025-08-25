@@ -6,8 +6,11 @@ extends Panel
 var cost = INF
 var effect
 var multiplier
+var max_owned
+var owned = 0
 
-func setup(title, description, item_cost, item_effect, price_multiplier):
+func setup(title, description, item_cost, item_effect, price_multiplier, max):
+	max_owned = max
 	effect = item_effect
 	multiplier = price_multiplier
 	cost = item_cost
@@ -29,9 +32,10 @@ func _process(delta: float) -> void:
 
 func _on_buy_button_pressed() -> void:
 	if main.score >= cost:
+		owned += 1
 		main.score -= cost
 		cost *= multiplier
-		cost = floor(cost)
+		cost = int(floor(cost))
 		$BuyButton.text = str(cost) + " Lines"
 		for e in effect.keys():
 			main.upgrades_bought += 1
@@ -44,3 +48,5 @@ func _on_buy_button_pressed() -> void:
 				"auto_code_multiplier":
 					main.auto_speed /= effect[e]
 					auto_timer.wait_time = main.auto_speed
+		if owned >= max_owned:
+			hide()

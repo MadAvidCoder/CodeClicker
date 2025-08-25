@@ -150,6 +150,7 @@ var upgrades = [
 		"description": "Type faster and with more satisfaction! +1 code per click.",
 		"cost": 50,
 		"price_multiplier": 1.12,
+		"max_owned": 25,
 		"effect": { "click_power": 1 }
 	},
 	{
@@ -158,6 +159,7 @@ var upgrades = [
 		"description": "No more cable drag. +1 code per click.",
 		"cost": 75,
 		"price_multiplier": 1.12,
+		"max_owned": 25,
 		"effect": { "click_power": 1 }
 	},
 	{
@@ -166,6 +168,7 @@ var upgrades = [
 		"description": "Jot down ideas on your monitor. +0.5 code per click.",
 		"cost": 90,
 		"price_multiplier": 1.11,
+		"max_owned": 15,
 		"effect": { "click_power": 0.5 }
 	},
 	{
@@ -174,6 +177,7 @@ var upgrades = [
 		"description": "Unlock advanced features to boost efficiency. +2 code per click.",
 		"cost": 140,
 		"price_multiplier": 1.13,
+		"max_owned": 20,
 		"effect": { "click_power": 2 }
 	},
 	{
@@ -182,6 +186,7 @@ var upgrades = [
 		"description": "Automatically fix simple bugs. +1 code per second.",
 		"cost": 210,
 		"price_multiplier": 1.14,
+		"max_owned": 20,
 		"effect": { "auto_code_per_sec": 1 }
 	},
 	{
@@ -190,6 +195,7 @@ var upgrades = [
 		"description": "Caffeine boost! +25% code per click.",
 		"cost": 350,
 		"price_multiplier": 1.14,
+		"max_owned": 10,
 		"effect": { "click_power_multiplier": 1.25 }
 	},
 	{
@@ -198,6 +204,7 @@ var upgrades = [
 		"description": "Twice the code windows, twice the productivity. +50% auto-code speed.",
 		"cost": 500,
 		"price_multiplier": 1.15,
+		"max_owned": 10,
 		"effect": { "auto_code_multiplier": 1.5 }
 	},
 	{
@@ -206,6 +213,7 @@ var upgrades = [
 		"description": "Paste code faster using handy snippets. +3 code per click.",
 		"cost": 620,
 		"price_multiplier": 1.16,
+		"max_owned": 20,
 		"effect": { "click_power": 3 }
 	},
 	{
@@ -214,6 +222,7 @@ var upgrades = [
 		"description": "Code from anywhere, anytime. +2 code per second.",
 		"cost": 800,
 		"price_multiplier": 1.16,
+		"max_owned": 15,
 		"effect": { "auto_code_per_sec": 2 }
 	},
 	{
@@ -222,6 +231,7 @@ var upgrades = [
 		"description": "Explain your code to the duck and spot more bugs. +1 code per second.",
 		"cost": 1100,
 		"price_multiplier": 1.15,
+		"max_owned": 20,
 		"effect": { "auto_code_per_sec": 1 }
 	},
 	{
@@ -230,6 +240,7 @@ var upgrades = [
 		"description": "Less eye strain means more code! +10% click and auto-code.",
 		"cost": 1200,
 		"price_multiplier": 1.15,
+		"max_owned": 5,
 		"effect": { "click_power_multiplier": 1.1, "auto_code_multiplier": 1.1 }
 	},
 	{
@@ -238,6 +249,7 @@ var upgrades = [
 		"description": "Never lose a line! +0.5 code per second.",
 		"cost": 1300,
 		"price_multiplier": 1.14,
+		"max_owned": 10,
 		"effect": { "auto_code_per_sec": 0.5 }
 	},
 	{
@@ -246,6 +258,7 @@ var upgrades = [
 		"description": "Shorter meetings, more time to code! +10% code per click.",
 		"cost": 1500,
 		"price_multiplier": 1.14,
+		"max_owned": 8,
 		"effect": { "click_power_multiplier": 1.1 }
 	},
 	{
@@ -254,6 +267,7 @@ var upgrades = [
 		"description": "Let AI write boilerplate for you. +50% auto-code speed.",
 		"cost": 1800,
 		"price_multiplier": 1.16,
+		"max_owned": 7,
 		"effect": { "auto_code_multiplier": 1.5 }
 	},
 	{
@@ -262,6 +276,7 @@ var upgrades = [
 		"description": "Stay comfortable, code longer. +2 code per second.",
 		"cost": 2000,
 		"price_multiplier": 1.15,
+		"max_owned": 10,
 		"effect": { "auto_code_per_sec": 2 }
 	},
 	{
@@ -270,6 +285,7 @@ var upgrades = [
 		"description": "Code on the go! +1 code per click.",
 		"cost": 2050,
 		"price_multiplier": 1.13,
+		"max_owned": 15,
 		"effect": { "click_power": 1 }
 	},
 	{
@@ -278,6 +294,7 @@ var upgrades = [
 		"description": "Type less, push more. +2 code per click.",
 		"cost": 2100,
 		"price_multiplier": 1.15,
+		"max_owned": 15,
 		"effect": { "click_power": 2 }
 	},
 	{
@@ -286,6 +303,7 @@ var upgrades = [
 		"description": "Pages load instantly, docs at your fingertips. +20% auto-code speed.",
 		"cost": 2500,
 		"price_multiplier": 1.16,
+		"max_owned": 6,
 		"effect": { "auto_code_multiplier": 1.2 }
 	},
 	{
@@ -294,6 +312,7 @@ var upgrades = [
 		"description": "Navigate code at the speed of thought. +3 code per click.",
 		"cost": 2800,
 		"price_multiplier": 1.15,
+		"max_owned": 10,
 		"effect": { "click_power": 3 }
 	},
 	{
@@ -302,6 +321,7 @@ var upgrades = [
 		"description": "Find bugs before they hit production. +3 code per second.",
 		"cost": 3200,
 		"price_multiplier": 1.16,
+		"max_owned": 8,
 		"effect": { "auto_code_per_sec": 3 }
 	},
 	{
@@ -310,6 +330,7 @@ var upgrades = [
 		"description": "Find answers instantly. +5 code per click.",
 		"cost": 3500,
 		"price_multiplier": 1.17,
+		"max_owned": 7,
 		"effect": { "click_power": 5 }
 	},
 	{
@@ -318,6 +339,7 @@ var upgrades = [
 		"description": "Automate your workflow. +15% to all code generation.",
 		"cost": 4200,
 		"price_multiplier": 1.17,
+		"max_owned": 5,
 		"effect": { "click_power_multiplier": 1.15, "auto_code_multiplier": 1.15 }
 	},
 	{
@@ -326,6 +348,7 @@ var upgrades = [
 		"description": "Track your time and code more efficiently. +0.5 code per second.",
 		"cost": 4300,
 		"price_multiplier": 1.14,
+		"max_owned": 10,
 		"effect": { "auto_code_per_sec": 0.5 }
 	},
 	{
@@ -334,6 +357,7 @@ var upgrades = [
 		"description": "Boosts your health and productivity. +30% auto-code speed.",
 		"cost": 5000,
 		"price_multiplier": 1.18,
+		"max_owned": 5,
 		"effect": { "auto_code_multiplier": 1.3 }
 	},
 	{
@@ -342,6 +366,7 @@ var upgrades = [
 		"description": "Deploy faster, debug less. +4 code per second.",
 		"cost": 6000,
 		"price_multiplier": 1.18,
+		"max_owned": 6,
 		"effect": { "auto_code_per_sec": 4 }
 	},
 	{
@@ -350,6 +375,7 @@ var upgrades = [
 		"description": "Code merges itself while you sleep. +6 code per second.",
 		"cost": 9000,
 		"price_multiplier": 1.19,
+		"max_owned": 5,
 		"effect": { "auto_code_per_sec": 6 }
 	},
 	{
@@ -358,6 +384,7 @@ var upgrades = [
 		"description": "AI reviews your code for bugs. +10% auto-code speed.",
 		"cost": 12000,
 		"price_multiplier": 1.2,
+		"max_owned": 3,
 		"effect": { "auto_code_multiplier": 1.1 }
 	},
 	{
@@ -366,6 +393,7 @@ var upgrades = [
 		"description": "See everything at once. +5 code per click.",
 		"cost": 15000,
 		"price_multiplier": 1.22,
+		"max_owned": 4,
 		"effect": { "click_power": 5 }
 	},
 	{
@@ -374,6 +402,7 @@ var upgrades = [
 		"description": "Instant compilation in the cloud. +8 code per second.",
 		"cost": 18000,
 		"price_multiplier": 1.25,
+		"max_owned": 3,
 		"effect": { "auto_code_per_sec": 8 }
 	}
 ]
@@ -408,7 +437,7 @@ func _ready():
 		mat.set_shader_parameter("rect_size", subviewport.size)
 	for upgrade in upgrades:
 		var i = item.instantiate()
-		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"])
+		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 		shop_container.add_child(i)
 
 func _process(delta: float) -> void:
