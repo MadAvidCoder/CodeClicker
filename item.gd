@@ -5,21 +5,34 @@ extends Panel
 
 var cost = INF
 var effect
+var multiplier
 
-func setup(title, description, item_cost, item_effect):
+func setup(title, description, item_cost, item_effect, price_multiplier):
 	effect = item_effect
+	multiplier = price_multiplier
 	cost = item_cost
 	$ItemTitle.text = title
 	$ItemDescription.text = description
 	$BuyButton.text = str(item_cost) + " Lines"
 	$BuyButton.disabled = true
+	if title != "Mechanical Keyboard":
+		hide()
 
 func _process(delta: float) -> void:
 	$BuyButton.disabled = not ((main.score >= cost) and (main.auto_per_sec > 0 or not effect.has("auto_code_multiplier")))
+	if not self.visible:
+		if main.score >= cost * 0.75:
+			if main.auto_per_sec > 0:
+				show()
+			elif not effect.has("auto_code_multiplier"):
+				show()
 
 func _on_buy_button_pressed() -> void:
 	if main.score >= cost:
 		main.score -= cost
+		cost *= multiplier
+		cost = floor(cost)
+		$BuyButton.text = str(cost) + " Lines"
 		for e in effect.keys():
 			main.upgrades_bought += 1
 			match e:
