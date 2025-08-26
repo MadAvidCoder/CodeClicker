@@ -57,8 +57,11 @@ func _on_buy_button_pressed() -> void:
 					main.auto_per_sec += effect[e]
 					main.auto_coders_bought += effect[e]
 				"auto_code_multiplier":
-					main.auto_speed /= effect[e]
-					auto_timer.wait_time = main.auto_speed
+					if main.auto_speed > 0.05:
+						main.auto_speed /= effect[e]
+						auto_timer.wait_time = main.auto_speed
+					else:
+						main.auto_per_sec *= effect[e]
 		if owned >= max_owned:
 			hide()
 			sold_out = true
