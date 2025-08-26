@@ -8,6 +8,7 @@ var effect
 var multiplier
 var max_owned
 var owned = 0
+var sold_out = false
 
 func setup(title, description, item_cost, item_effect, price_multiplier, max):
 	max_owned = max
@@ -23,7 +24,7 @@ func setup(title, description, item_cost, item_effect, price_multiplier, max):
 
 func _process(delta: float) -> void:
 	$BuyButton.disabled = not ((main.score >= cost) and (main.auto_per_sec > 0 or not effect.has("auto_code_multiplier")))
-	if not self.visible:
+	if not self.visible and not sold_out:
 		if main.score >= cost * 0.75:
 			if main.auto_per_sec > 0:
 				show()
@@ -50,3 +51,4 @@ func _on_buy_button_pressed() -> void:
 					auto_timer.wait_time = main.auto_speed
 		if owned >= max_owned:
 			hide()
+			sold_out = true
