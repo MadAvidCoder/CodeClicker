@@ -10,8 +10,8 @@ var max_owned
 var owned = 0
 var sold_out = false
 
-func setup(title, description, item_cost, item_effect, price_multiplier, max):
-	max_owned = max
+func setup(title, description, item_cost, item_effect, price_multiplier, max_available):
+	max_owned = max_available
 	effect = item_effect
 	multiplier = price_multiplier
 	cost = item_cost
@@ -22,8 +22,18 @@ func setup(title, description, item_cost, item_effect, price_multiplier, max):
 	if title != "Mechanical Keyboard":
 		hide()
 
-func _process(delta: float) -> void:
-	$BuyButton.disabled = not ((main.score >= cost) and (main.auto_per_sec > 0 or not effect.has("auto_code_multiplier")))
+func _process(_delta: float) -> void:
+	if main.score >= cost:
+		if effect.has("auto_code_multiplier"):
+			if main.auto_per_sec > 0:
+				$BuyButton.disabled = false
+			else:
+				$BuyButton.disabled = true
+		else:
+			$BuyButton.disabled = false
+	else:
+		$BuyButton.disabled = true
+	
 	if not self.visible and not sold_out:
 		if main.score >= cost * 0.75:
 			if main.auto_per_sec > 0:

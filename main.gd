@@ -431,7 +431,7 @@ func _ready():
 		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 		shop_container.add_child(i)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
 	check_achievements()
 
@@ -450,7 +450,7 @@ func check_unlock(requirements: Dictionary) -> bool:
 		"hackathon_clicks":
 			return hackathon_clicks >= requirements["value"]
 		"auto_coder_level":
-			return max_auto_level>= requirements["value"]
+			return max_auto_level >= requirements["value"]
 		"prestiges":
 			return prestige_count >= requirements["value"]
 		"auto_lines_written":
