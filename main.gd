@@ -154,37 +154,28 @@ var upgrades = [
 		"effect": { "click_power": 1 }
 	},
 	{
-		"id": "wireless_mouse",
-		"name": "Wireless Mouse",
-		"description": "No more cable drag. +1 code per click.",
-		"cost": 75,
-		"price_multiplier": 1.12,
-		"max_owned": 25,
-		"effect": { "click_power": 1 }
-	},
-	{
 		"id": "sticky_notes",
 		"name": "Sticky Notes",
-		"description": "Jot down ideas on your monitor. +0.5 code per click.",
+		"description": "Jot down ideas on your monitor. +0.75 code per click.",
 		"cost": 90,
 		"price_multiplier": 1.11,
 		"max_owned": 15,
-		"effect": { "click_power": 0.5 }
+		"effect": { "click_power": 0.75 }
 	},
 	{
 		"id": "text_editor_upgrade",
 		"name": "Pro Text Editor",
-		"description": "Unlock advanced features to boost efficiency. +2 code per click.",
-		"cost": 140,
+		"description": "Unlock advanced features to boost efficiency. +5 code per click.",
+		"cost": 200,
 		"price_multiplier": 1.13,
 		"max_owned": 20,
-		"effect": { "click_power": 2 }
+		"effect": { "click_power": 5 }
 	},
 	{
 		"id": "auto_linter",
 		"name": "Auto-Linter",
 		"description": "Automatically fix simple bugs. +1 code per second.",
-		"cost": 210,
+		"cost": 220,
 		"price_multiplier": 1.14,
 		"max_owned": 20,
 		"effect": { "auto_code_per_sec": 1 }
@@ -192,218 +183,218 @@ var upgrades = [
 	{
 		"id": "coffee_machine",
 		"name": "Coffee Machine",
-		"description": "Caffeine boost! +25% code per click.",
+		"description": "Caffeine boost! +20% code per click.",
 		"cost": 350,
 		"price_multiplier": 1.14,
 		"max_owned": 10,
-		"effect": { "click_power_multiplier": 1.25 }
+		"effect": { "click_power_multiplier": 1.2 }
 	},
 	{
 		"id": "dual_monitors",
 		"name": "Dual Monitors",
-		"description": "Twice the code windows, twice the productivity. +50% auto-code speed.",
-		"cost": 500,
+		"description": "Twice the code windows, twice the productivity. +60% auto-code speed.",
+		"cost": 600,
 		"price_multiplier": 1.15,
 		"max_owned": 10,
-		"effect": { "auto_code_multiplier": 1.5 }
+		"effect": { "auto_code_multiplier": 1.6 }
 	},
 	{
 		"id": "code_snippets",
 		"name": "Reusable Snippets",
-		"description": "Paste code faster using handy snippets. +3 code per click.",
-		"cost": 620,
+		"description": "Paste code faster using handy snippets. +8 code per click.",
+		"cost": 1100,
 		"price_multiplier": 1.16,
 		"max_owned": 20,
-		"effect": { "click_power": 3 }
+		"effect": { "click_power": 8 }
 	},
 	{
 		"id": "cloud_ide",
 		"name": "Cloud IDE",
-		"description": "Code from anywhere, anytime. +2 code per second.",
-		"cost": 800,
+		"description": "Code from anywhere, anytime. +6 code per second.",
+		"cost": 1500,
 		"price_multiplier": 1.16,
 		"max_owned": 15,
-		"effect": { "auto_code_per_sec": 2 }
+		"effect": { "auto_code_per_sec": 6 }
 	},
 	{
 		"id": "rubber_ducky",
 		"name": "Rubber Duck Debugging",
-		"description": "Explain your code to the duck and spot more bugs. +1 code per second.",
-		"cost": 1100,
+		"description": "Explain your code to the duck and spot more bugs. +5 code per second.",
+		"cost": 1700,
 		"price_multiplier": 1.15,
 		"max_owned": 20,
-		"effect": { "auto_code_per_sec": 1 }
+		"effect": { "auto_code_per_sec": 5 }
 	},
 	{
 		"id": "dark_theme",
 		"name": "Dark Theme",
-		"description": "Less eye strain means more code! +10% click and auto-code.",
-		"cost": 1200,
+		"description": "Less eye strain means more code! +20% click and auto-code.",
+		"cost": 2000,
 		"price_multiplier": 1.15,
 		"max_owned": 5,
-		"effect": { "click_power_multiplier": 1.1, "auto_code_multiplier": 1.1 }
+		"effect": { "click_power_multiplier": 1.2, "auto_code_multiplier": 1.2 }
 	},
 	{
 		"id": "cloud_storage",
 		"name": "Cloud Storage",
-		"description": "Never lose a line! +0.5 code per second.",
-		"cost": 1300,
+		"description": "Never lose a line! +4 code per second.",
+		"cost": 2500,
 		"price_multiplier": 1.14,
 		"max_owned": 10,
-		"effect": { "auto_code_per_sec": 0.5 }
+		"effect": { "auto_code_per_sec": 4 }
 	},
 	{
 		"id": "standing_meetings",
 		"name": "Standing Meetings",
-		"description": "Shorter meetings, more time to code! +10% code per click.",
-		"cost": 1500,
+		"description": "Shorter meetings, more time to code! +15% code per click.",
+		"cost": 2700,
 		"price_multiplier": 1.14,
 		"max_owned": 8,
-		"effect": { "click_power_multiplier": 1.1 }
+		"effect": { "click_power_multiplier": 1.15 }
 	},
 	{
 		"id": "copilot_ai",
 		"name": "AI Copilot",
-		"description": "Let AI write boilerplate for you. +50% auto-code speed.",
-		"cost": 1800,
+		"description": "Let AI write boilerplate for you. +100% auto-code speed.",
+		"cost": 3400,
 		"price_multiplier": 1.16,
 		"max_owned": 7,
-		"effect": { "auto_code_multiplier": 1.5 }
+		"effect": { "auto_code_multiplier": 2 }
 	},
 	{
 		"id": "ergonomic_chair",
 		"name": "Ergonomic Chair",
-		"description": "Stay comfortable, code longer. +2 code per second.",
-		"cost": 2000,
+		"description": "Stay comfortable, code longer. +6 code per second.",
+		"cost": 4000,
 		"price_multiplier": 1.15,
 		"max_owned": 10,
-		"effect": { "auto_code_per_sec": 2 }
+		"effect": { "auto_code_per_sec": 6 }
 	},
 	{
 		"id": "portable_laptop",
 		"name": "Portable Laptop",
-		"description": "Code on the go! +1 code per click.",
-		"cost": 2050,
+		"description": "Code on the go! +4 code per click.",
+		"cost": 4300,
 		"price_multiplier": 1.13,
 		"max_owned": 15,
-		"effect": { "click_power": 1 }
+		"effect": { "click_power": 4 }
 	},
 	{
 		"id": "git_aliases",
 		"name": "Git Aliases",
-		"description": "Type less, push more. +2 code per click.",
-		"cost": 2100,
+		"description": "Type less, push more. +6 code per click.",
+		"cost": 4700,
 		"price_multiplier": 1.15,
 		"max_owned": 15,
-		"effect": { "click_power": 2 }
+		"effect": { "click_power": 6 }
 	},
 	{
 		"id": "faster_internet",
 		"name": "Faster Internet",
-		"description": "Pages load instantly, docs at your fingertips. +20% auto-code speed.",
-		"cost": 2500,
+		"description": "Pages load instantly, docs at your fingertips. +40% auto-code speed.",
+		"cost": 6000,
 		"price_multiplier": 1.16,
 		"max_owned": 6,
-		"effect": { "auto_code_multiplier": 1.2 }
+		"effect": { "auto_code_multiplier": 1.4 }
 	},
 	{
 		"id": "vim_shortcuts",
 		"name": "Vim Shortcuts",
-		"description": "Navigate code at the speed of thought. +3 code per click.",
-		"cost": 2800,
+		"description": "Navigate code at the speed of thought. +10 code per click.",
+		"cost": 7000,
 		"price_multiplier": 1.15,
 		"max_owned": 10,
-		"effect": { "click_power": 3 }
+		"effect": { "click_power": 10 }
 	},
 	{
 		"id": "unit_tests",
 		"name": "Unit Tests",
-		"description": "Find bugs before they hit production. +3 code per second.",
-		"cost": 3200,
+		"description": "Find bugs before they hit production. +8 code per second.",
+		"cost": 9000,
 		"price_multiplier": 1.16,
 		"max_owned": 8,
-		"effect": { "auto_code_per_sec": 3 }
+		"effect": { "auto_code_per_sec": 8 }
 	},
 	{
 		"id": "stack_overflow",
 		"name": "Stack Overflow Access",
-		"description": "Find answers instantly. +5 code per click.",
-		"cost": 3500,
+		"description": "Find answers instantly. +20 code per click.",
+		"cost": 12000,
 		"price_multiplier": 1.17,
 		"max_owned": 7,
-		"effect": { "click_power": 5 }
+		"effect": { "click_power": 20 }
 	},
 	{
 		"id": "devops_pipeline",
 		"name": "DevOps Pipeline",
-		"description": "Automate your workflow. +15% to all code generation.",
-		"cost": 4200,
+		"description": "Automate your workflow. +25% to all code generation.",
+		"cost": 16000,
 		"price_multiplier": 1.17,
 		"max_owned": 5,
-		"effect": { "click_power_multiplier": 1.15, "auto_code_multiplier": 1.15 }
+		"effect": { "click_power_multiplier": 1.25, "auto_code_multiplier": 1.25 }
 	},
 	{
 		"id": "smart_watch",
 		"name": "Smart Watch",
-		"description": "Track your time and code more efficiently. +0.5 code per second.",
-		"cost": 4300,
+		"description": "Track your time and code more efficiently. +2 code per second.",
+		"cost": 17000,
 		"price_multiplier": 1.14,
 		"max_owned": 10,
-		"effect": { "auto_code_per_sec": 0.5 }
+		"effect": { "auto_code_per_sec": 2 }
 	},
 	{
 		"id": "standing_desk",
 		"name": "Standing Desk",
-		"description": "Boosts your health and productivity. +30% auto-code speed.",
-		"cost": 5000,
+		"description": "Boosts your health and productivity. +50% auto-code speed.",
+		"cost": 20000,
 		"price_multiplier": 1.18,
 		"max_owned": 5,
-		"effect": { "auto_code_multiplier": 1.3 }
+		"effect": { "auto_code_multiplier": 1.5 }
 	},
 	{
 		"id": "docker_containers",
 		"name": "Docker Containers",
-		"description": "Deploy faster, debug less. +4 code per second.",
-		"cost": 6000,
+		"description": "Deploy faster, debug less. +15 code per second.",
+		"cost": 25000,
 		"price_multiplier": 1.18,
 		"max_owned": 6,
-		"effect": { "auto_code_per_sec": 4 }
+		"effect": { "auto_code_per_sec": 15 }
 	},
 	{
 		"id": "continuous_integration",
 		"name": "Continuous Integration",
-		"description": "Code merges itself while you sleep. +6 code per second.",
-		"cost": 9000,
+		"description": "Code merges itself while you sleep. +30 code per second.",
+		"cost": 40000,
 		"price_multiplier": 1.19,
 		"max_owned": 5,
-		"effect": { "auto_code_per_sec": 6 }
+		"effect": { "auto_code_per_sec": 30 }
 	},
 	{
 		"id": "ai_code_reviewer",
 		"name": "AI Code Reviewer",
-		"description": "AI reviews your code for bugs. +10% auto-code speed.",
-		"cost": 12000,
+		"description": "AI reviews your code for bugs. +25% auto-code speed.",
+		"cost": 60000,
 		"price_multiplier": 1.2,
 		"max_owned": 3,
-		"effect": { "auto_code_multiplier": 1.1 }
+		"effect": { "auto_code_multiplier": 1.25 }
 	},
 	{
 		"id": "triple_monitor_setup",
 		"name": "Triple Monitor Setup",
-		"description": "See everything at once. +5 code per click.",
-		"cost": 15000,
+		"description": "See everything at once. +50 code per click.",
+		"cost": 75000,
 		"price_multiplier": 1.22,
 		"max_owned": 4,
-		"effect": { "click_power": 5 }
+		"effect": { "click_power": 50 }
 	},
 	{
 		"id": "cloud_compiler",
 		"name": "Cloud Compiler",
-		"description": "Instant compilation in the cloud. +8 code per second.",
-		"cost": 18000,
+		"description": "Instant compilation in the cloud. +100 code per second.",
+		"cost": 100000,
 		"price_multiplier": 1.25,
 		"max_owned": 3,
-		"effect": { "auto_code_per_sec": 8 }
+		"effect": { "auto_code_per_sec": 100 }
 	}
 ]
 
