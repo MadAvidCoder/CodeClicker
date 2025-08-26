@@ -480,11 +480,11 @@ func _on_texture_button_pressed() -> void:
 	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
 
 func count_time(timestamps, timeframe):
-	timestamps = timestamps.duplicate()
 	var now = Time.get_ticks_msec() / 1000.0
-	while timestamps.size() > 0 and now - timestamps[0] > timeframe:
-		timestamps.pop_front()
-	return timestamps.size()
+	var i = 0
+	while i < timestamps.size() and now - timestamps[i] > timeframe:
+		i += 1
+	return timestamps.size() - i
 
 func _on_auto_coder_timer_timeout() -> void:
 	score += auto_per_sec
