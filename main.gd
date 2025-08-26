@@ -488,8 +488,8 @@ func check_achievements() -> void:
 				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]])
 
 func _on_texture_button_pressed() -> void:
-	score += 1 * power
-	total_score += 1 * power
+	score += power
+	total_score += power
 	clicks += 1
 	recent_clicks_timestamps.append(Time.get_ticks_msec() / 1000.0)
 	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
