@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=11 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="BitMap" uid="uid://bxin2asb7nbj0" path="res://keyboard_map.png" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://b3f21sr2ldxmy" path="res://texture_button.gd" id="4_1bvp3"]
-[ext_resource type="SystemFont" uid="uid://c5dx2v4ftd7qg" path="res://font.tres" id="5_lquwl"]
+[ext_resource type="FontFile" uid="uid://d1o7fr6w7chnu" path="res://CourierPrime-Bold.ttf" id="5_272bh"]
 [ext_resource type="Script" uid="uid://d31pji8vuw1f6" path="res://achievement_display.gd" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://bsto2oua251w6" path="res://scanlines.gdshader" id="6_7mycd"]
+[ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("6_7mycd")
@@ -77,8 +78,8 @@ offset_right = -39.0
 offset_bottom = 81.0
 grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
-theme_override_fonts/font = ExtResource("5_lquwl")
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("5_272bh")
+theme_override_font_sizes/font_size = 40
 text = "0 Lines"
 horizontal_alignment = 1
 
@@ -114,6 +115,11 @@ color = Color(0.0657, 0.09, 0.0657, 1)
 offset_left = 6.5
 offset_right = 306.5
 offset_bottom = 100.0
+theme_override_fonts/normal_font = ExtResource("7_5vw27")
+theme_override_fonts/mono_font = ExtResource("7_5vw27")
+theme_override_fonts/italics_font = ExtResource("7_5vw27")
+theme_override_fonts/bold_italics_font = ExtResource("7_5vw27")
+theme_override_fonts/bold_font = ExtResource("7_5vw27")
 fit_content = true
 vertical_alignment = 1
 
@@ -153,7 +159,7 @@ offset_right = 99.0
 offset_bottom = 71.0
 grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
-theme_override_fonts/font = ExtResource("5_lquwl")
+theme_override_fonts/font = ExtResource("5_272bh")
 theme_override_font_sizes/font_size = 40
 text = "UPGRADES"
 horizontal_alignment = 1
