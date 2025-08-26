@@ -44,10 +44,10 @@ var achievements = [
 		"unlocked": false
 	},
 	{
-		"id": "open_source_contributor",
-		"name": "Open Source Contributor",
-		"description": "Click a rare 'Open Source' event button.",
-		"requirement": { "type": "open_source_clicks", "value": 1 },
+		"id": "hackathon_participant",
+		"name": "Hackathon Participant",
+		"description": "Click a rare 'Hackathon' event button.",
+		"requirement": { "type": "hackathon_clicks", "value": 1 },
 		"unlocked": false
 	},
 	{
@@ -416,7 +416,7 @@ var score = 0
 var total_score = 0
 var upgrades_bought = 0
 var auto_coders_bought = 0
-var open_source_clicks = 0
+var hackathon_clicks = 0
 var max_auto_level = 0
 var prestige_count = 0
 var auto_lines_written = 0
@@ -456,8 +456,8 @@ func check_unlock(requirements: Dictionary) -> bool:
 			return auto_coders_bought >= requirements["value"]
 		"upgrades_bought":
 			return upgrades_bought >= requirements["value"]
-		"open_source_clicks":
-			return open_source_clicks >= requirements["value"]
+		"hackathon_clicks":
+			return hackathon_clicks >= requirements["value"]
 		"auto_coder_level":
 			return max_auto_level>= requirements["value"]
 		"prestiges":
