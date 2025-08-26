@@ -414,6 +414,8 @@ var auto_lines_written = 0
 var help_viewed = false
 var auto_per_sec = 0
 var auto_speed = 1
+var max_click_timeframe = 0
+var max_line_timeframe = 0
 
 @onready var label = $Label
 @onready var subviewport := $AchievementDisplay/SubViewport
@@ -423,6 +425,11 @@ var auto_speed = 1
 @onready var shop_container = $Shop/ScrollContainer/VBoxContainer
 
 func _ready():
+	for ach in achievements:
+		if ach["requirement"]["type"] == "clicks_in_time":
+			max_click_timeframe = max(max_click_timeframe, ach["requirement"].get("timeframe", 0))
+		if ach["requirement"]["type"] == "code_lines_in_time":
+			max_line_timeframe = max(max_line_timeframe, ach["requirement"].get("timeframe", 0))
 	var mat = texture_rect.material
 	if mat and mat is ShaderMaterial:
 		mat.set_shader_parameter("rect_size", subviewport.size)
@@ -434,6 +441,14 @@ func _ready():
 func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
 	check_achievements()
+	cleanup_timestamps()
+
+func cleanup_timestamps():
+	var now = Time.get_ticks_msec() / 1000.0
+	while recent_clicks_timestamps.size() > 0 and now - recent_clicks_timestamps[0] > max_click_timeframe:
+		recent_clicks_timestamps.remove_at(0)
+	while recent_lines_timestamps.size() > 0 and now - recent_lines_timestamps[0] > max_line_timeframe:
+		recent_lines_timestamps.remove_at(0)
 
 func check_unlock(requirements: Dictionary) -> bool:
 	if requirements.has("no_upgrades") and upgrades_bought > 0:
