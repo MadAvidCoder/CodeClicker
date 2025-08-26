@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4xp2b13gbg4j"]
+
+[ext_resource type="SystemFont" uid="uid://c5dx2v4ftd7qg" path="res://font.tres" id="1_tnite"]
+[ext_resource type="Script" uid="uid://bi4aambjmawmd" path="res://item.gd" id="1_ttk8k"]
+
+[sub_resource type="SystemFont" id="SystemFont_272bh"]
+font_names = PackedStringArray("Cascadia Code")
+subpixel_positioning = 0
+
+[node name="Item" type="Panel"]
+custom_minimum_size = Vector2(0, 110)
+script = ExtResource("1_ttk8k")
+
+[node name="ItemTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 26.0
+grow_horizontal = 2
+pivot_offset = Vector2(99, 16)
+theme_override_fonts/font = ExtResource("1_tnite")
+theme_override_font_sizes/font_size = 18
+text = "Rubber Duck Debugging"
+horizontal_alignment = 1
+
+[node name="ItemDescription" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(99, 16)
+theme_override_fonts/font = ExtResource("1_tnite")
+theme_override_font_sizes/font_size = 12
+text = "Twice the code windows, twice the productivity. +100% auto-code speed."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -36.0
+offset_right = 55.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = SubResource("SystemFont_272bh")
+theme_override_font_sizes/font_size = 15
+text = "8000 Lines"
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

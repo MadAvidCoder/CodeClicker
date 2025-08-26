@@ -1,0 +1,9 @@
+[gd_resource type="SystemFont" load_steps=2 format=3 uid="uid://c5dx2v4ftd7qg"]
+
+[sub_resource type="SystemFont" id="SystemFont_1bvp3"]
+font_names = PackedStringArray("Monospace")
+
+[resource]
+fallbacks = Array[Font]([SubResource("SystemFont_1bvp3")])
+font_names = PackedStringArray("Courier New")
+font_weight = 800
