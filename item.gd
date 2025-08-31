@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 		$BuyButton.disabled = true
 	
 	if not self.visible and not sold_out:
-		if main.score >= cost * 0.75:
+		if main.score >= cost * 0.6:
 			if main.auto_per_sec > 0:
 				show()
 			elif not effect.has("auto_code_multiplier"):
