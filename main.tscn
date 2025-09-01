@@ -1,14 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=16 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="BitMap" uid="uid://bxin2asb7nbj0" path="res://keyboard_map.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://7cd601pdlh3p" path="res://one.png" id="3_efxa6"]
 [ext_resource type="Script" uid="uid://b3f21sr2ldxmy" path="res://texture_button.gd" id="4_1bvp3"]
 [ext_resource type="FontFile" uid="uid://d1o7fr6w7chnu" path="res://CourierPrime-Bold.ttf" id="5_272bh"]
 [ext_resource type="Script" uid="uid://d31pji8vuw1f6" path="res://achievement_display.gd" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://bsto2oua251w6" path="res://scanlines.gdshader" id="6_7mycd"]
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dgxekk4fp5li0" path="res://zero.png" id="10_4c57u"]
 [ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
+
+[sub_resource type="Gradient" id="Gradient_efxa6"]
+colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_dg77c"]
+colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("6_7mycd")
@@ -41,6 +49,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ZeroParticles" type="CPUParticles2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(438.5, 0)
+amount = 50
+texture = ExtResource("10_4c57u")
+lifetime = 5.0
+randomness = 0.75
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+spread = 60.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+scale_amount_min = 0.7
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_efxa6")
+
+[node name="OneParticles" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(438.5, 0)
+amount = 50
+texture = ExtResource("3_efxa6")
+lifetime = 5.0
+randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+gravity = Vector2(0, 75)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+scale_amount_min = 0.7
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_dg77c")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 texture_filter = 1
@@ -192,11 +235,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_272bh")
 theme_override_font_sizes/font_size = 18
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 tab_focus_mode = 0
 
 [node name="TOOLS" type="ScrollContainer" parent="Shop/TabContainer"]
-visible = false
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
@@ -212,6 +254,7 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="FLAIRS" type="TabContainer" parent="Shop/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_efxa6")
 theme_override_font_sizes/font_size = 15

@@ -1,7 +1,7 @@
 extends Panel
 
-@onready var main = $"../../../../.."
-@onready var auto_timer = $"../../../../../AutoCoderTimer"
+var main
+var auto_timer
 
 var cost = INF
 var effect
@@ -19,7 +19,6 @@ enum {
 var type
 
 func setup_upgrade(title, description, item_cost, item_effect, price_multiplier, max_available):
-	type = UPGRADE
 	max_owned = max_available
 	effect = item_effect
 	multiplier = price_multiplier
@@ -28,11 +27,13 @@ func setup_upgrade(title, description, item_cost, item_effect, price_multiplier,
 	$ItemDescription.text = description
 	$BuyButton.text = str(item_cost) + " Lines"
 	$BuyButton.disabled = true
+	main = $"../../../../.."
+	auto_timer = $"../../../../../AutoCoderTimer"
 	if title != "Mechanical Keyboard":
 		hide()
+	type = UPGRADE
 
 func setup_cosmetic(title, description, item_cost, item_effect, item_type):
-	type = COSMETIC
 	effect = item_effect
 	cosmetic_type = item_type
 	cost = item_cost
@@ -42,26 +43,33 @@ func setup_cosmetic(title, description, item_cost, item_effect, item_type):
 	$BuyButton.disabled = true
 	main = $"../../../../../.."
 	auto_timer = $"../../../../../../AutoCoderTimer"
+	type = COSMETIC
 
 func _process(_delta: float) -> void:
-	if type == UPGRADE:
-		if main.score >= cost:
-			if effect.has("auto_code_multiplier"):
-				if main.auto_per_sec > 0:
-					$BuyButton.disabled = false
+	if main:
+		if type == UPGRADE:
+			if main.score >= cost:
+				if effect.has("auto_code_multiplier"):
+					if main.auto_per_sec > 0:
+						$BuyButton.disabled = false
+					else:
+						$BuyButton.disabled = true
 				else:
-					$BuyButton.disabled = true
+					$BuyButton.disabled = false
 			else:
+				$BuyButton.disabled = true
+			
+			if not self.visible and not sold_out:
+				if main.score >= cost * 0.6:
+					if main.auto_per_sec > 0:
+						show()
+					elif not effect.has("auto_code_multiplier"):
+						show()
+		elif type == COSMETIC:
+			if main.flair_credits >= cost:
 				$BuyButton.disabled = false
-		else:
-			$BuyButton.disabled = true
-		
-		if not self.visible and not sold_out:
-			if main.score >= cost * 0.6:
-				if main.auto_per_sec > 0:
-					show()
-				elif not effect.has("auto_code_multiplier"):
-					show()
+			else:
+				$BuyButton.disabled = true
 
 func _on_buy_button_pressed() -> void:
 	if type == UPGRADE:

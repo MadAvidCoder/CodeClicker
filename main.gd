@@ -421,23 +421,16 @@ var upgrades = [
 var cosmetics = {
 	"background": [
 		{
-			"id": "night_mode",
-			"name": "Night Mode",
-			"cost": 2,
-			"description": "A soothing dark theme for late-night coding.",
-			"preview": "night_mode.png"
-		},
-		{
 			"id": "binary_snowfall",
 			"name": "Binary Snowfall",
-			"cost": 3,
+			"cost": 2,
 			"description": "Bits and bytes drift gently down your screen.",
 			"preview": "binary_snowfall.gif"
 		},
 		{
 			"id": "matrix_rain",
 			"name": "Matrix Rain",
-			"cost": 5,
+			"cost": 4,
 			"description": "Transform your background with digital rain.",
 			"preview": "matrix_rain.gif"
 		},
@@ -577,17 +570,17 @@ func _ready():
 		mat.set_shader_parameter("rect_size", subviewport.size)
 	for upgrade in upgrades:
 		var i = item.instantiate()
-		i.setup_upgrade(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 		shop_container.add_child(i)
+		i.setup_upgrade(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 	for cos_type in cosmetics.keys():
 		for cos in cosmetics[cos_type]:
 			var i = item.instantiate()
-			i.setup_cosmetic(cos["name"], cos["description"], cos["cost"], cos["preview"], cos_type)
 			match cos_type:
-				"background": background_flair_container.add_child(i)
+				"background": background_flair_container.add_child(i) 
 				"cursor": cursors_flair_container.add_child(i)
 				"click_effect": effects_flair_container.add_child(i)
 				"sound_pack": sounds_flair_container.add_child(i)
+			i.setup_cosmetic(cos["name"], cos["description"], cos["cost"], cos["preview"], cos_type)
 
 func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
