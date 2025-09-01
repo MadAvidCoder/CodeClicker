@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=12 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d31pji8vuw1f6" path="res://achievement_display.gd" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://bsto2oua251w6" path="res://scanlines.gdshader" id="6_7mycd"]
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
+[ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("6_7mycd")
@@ -73,14 +74,30 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -237.0
-offset_top = 40.0
+offset_top = 39.0
 offset_right = -39.0
-offset_bottom = 81.0
+offset_bottom = 85.0
 grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
 theme_override_fonts/font = ExtResource("5_272bh")
 theme_override_font_sizes/font_size = 40
 text = "0 Lines"
+horizontal_alignment = 1
+
+[node name="FlairLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.5
+offset_top = 92.0
+offset_right = -25.5
+offset_bottom = 138.0
+grow_horizontal = 2
+pivot_offset = Vector2(99, 16)
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 25
+text = "0 Flair Credits"
 horizontal_alignment = 1
 
 [node name="AchievementDisplay" type="Control" parent="."]
@@ -161,10 +178,10 @@ grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
 theme_override_fonts/font = ExtResource("5_272bh")
 theme_override_font_sizes/font_size = 40
-text = "UPGRADES"
+text = "THE TOOLBOX"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+[node name="TabContainer" type="TabContainer" parent="Shop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,14 +189,98 @@ anchor_bottom = 1.0
 offset_top = 94.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_272bh")
+theme_override_font_sizes/font_size = 18
+tab_alignment = 1
+current_tab = 1
+tab_focus_mode = 0
+
+[node name="TOOLS" type="ScrollContainer" parent="Shop/TabContainer"]
+visible = false
+layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
+metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/TOOLS"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/TOOLS/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="FLAIRS" type="TabContainer" parent="Shop/TabContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 15
+current_tab = 0
+tab_focus_mode = 0
+metadata/_tab_index = 1
+
+[node name="Backgrounds" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Backgrounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Backgrounds/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="Cursors" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+visible = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Cursors"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Cursors/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="Effects" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+visible = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Effects/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="Sounds" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+visible = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Sounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Sounds/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
 
 [node name="AutoCoderTimer" type="Timer" parent="."]
 autostart = true

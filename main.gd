@@ -6,140 +6,160 @@ var achievements = [
 		"name": "Hello, World!",
 		"description": "Write your very first line of code.",
 		"requirement": { "type": "total_code_lines", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 1
 	},
 	{
 		"id": "syntax_student",
 		"name": "Syntax Student",
 		"description": "Write 100 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 100 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 2
 	},
 	{
 		"id": "debugging_beginner",
 		"name": "Debugging Beginner",
 		"description": "Click 10 times in 5 seconds (debug those bugs fast!).",
 		"requirement": { "type": "clicks_in_time", "value": 10, "timeframe": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 2
 	},
 	{
 		"id": "commit_pusher",
 		"name": "Commit Pusher",
 		"description": "Reach 1,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 5
 	},
 	{
 		"id": "automation_script",
 		"name": "Automation Script",
 		"description": "Unlock your first auto-coder.",
 		"requirement": { "type": "auto_coders_bought", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 3
 	},
 	{
 		"id": "framework_founder",
 		"name": "Framework Founder",
 		"description": "Unlock 10 code upgrades.",
 		"requirement": { "type": "upgrades_bought", "value": 10 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 5
 	},
 	{
 		"id": "hackathon_participant",
 		"name": "Hackathon Participant",
 		"description": "Click a rare 'Hackathon' event button.",
 		"requirement": { "type": "hackathon_clicks", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 5
 	},
 	{
 		"id": "pull_request_pro",
 		"name": "Pull Request Pro",
 		"description": "Upgrade an auto-coder to level 5.",
 		"requirement": { "type": "auto_coder_level", "value": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 4
 	},
 	{
 		"id": "hackathon_hero",
 		"name": "Hackathon Hero",
 		"description": "Write 500 lines of code in one minute.",
 		"requirement": { "type": "code_lines_in_time", "value": 500, "timeframe": 60 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 7
 	},
 	{
 		"id": "legacy_maintainer",
 		"name": "Legacy Maintainer",
 		"description": "Prestige for the first time and start a new project.",
 		"requirement": { "type": "prestiges", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 8
 	},
 	{
 		"id": "million_line_club",
 		"name": "Million Line Club",
 		"description": "Write 1,000,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 30
 	},
 	{
 		"id": "merge_conflict",
 		"name": "Merge Conflict",
 		"description": "Reach 50,000 lines of code without buying any upgrades.",
 		"requirement": { "type": "total_code_lines", "value": 50000, "no_upgrades": true },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 15
 	},
 	{
 		"id": "code_reviewed",
 		"name": "Code Reviewed",
 		"description": "Manually click 1,000 times.",
 		"requirement": { "type": "manual_clicks", "value": 1000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 4
 	},
 	{
 		"id": "dark_theme_activated",
 		"name": "Dark Theme Activated",
 		"description": "Unlock the dark theme for your editor.",
 		"requirement": { "type": "theme_unlocked", "theme": "dark" },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 2
 	},
 	{
 		"id": "full_stack_dev",
 		"name": "Full Stack Dev",
 		"description": "Own at least one of every upgrade type.",
 		"requirement": { "type": "has_each_upgrade_type", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 8
 	},
 	{
 		"id": "lint_free",
 		"name": "Lint Free",
 		"description": "Write 10,000 lines of code without any 'bug' events.",
 		"requirement": { "type": "code_lines_without_bug", "value": 10000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 6
 	},
 	{
 		"id": "refactor_master",
 		"name": "Refactor Master",
 		"description": "Reset (prestige) five times.",
 		"requirement": { "type": "prestiges", "value": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 12
 	},
 	{
 		"id": "speed_typist",
 		"name": "Speed Typist",
 		"description": "Achieve 50 clicks in 10 seconds.",
 		"requirement": { "type": "clicks_in_time", "value": 50, "timeframe": 10 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 5
 	},
 	{
 		"id": "documentation_guru",
 		"name": "Documentation Guru",
 		"description": "View the help/about screen.",
 		"requirement": { "type": "viewed_help", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 1
 	},
 	{
 		"id": "copilot_friend",
 		"name": "Copilot Friend",
 		"description": "Let an auto-coder write 10,000 lines for you.",
 		"requirement": { "type": "auto_lines_written", "value": 10000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 6
 	}
 ]
 
@@ -398,9 +418,126 @@ var upgrades = [
 	}
 ]
 
+var cosmetics = {
+	"background": [
+		{
+			"id": "night_mode",
+			"name": "Night Mode",
+			"cost": 2,
+			"description": "A soothing dark theme for late-night coding.",
+			"preview": "night_mode.png"
+		},
+		{
+			"id": "binary_snowfall",
+			"name": "Binary Snowfall",
+			"cost": 3,
+			"description": "Bits and bytes drift gently down your screen.",
+			"preview": "binary_snowfall.gif"
+		},
+		{
+			"id": "matrix_rain",
+			"name": "Matrix Rain",
+			"cost": 5,
+			"description": "Transform your background with digital rain.",
+			"preview": "matrix_rain.gif"
+		},
+		{
+			"id": "retro_crt",
+			"name": "Retro CRT",
+			"cost": 7,
+			"description": "Old-school green phosphor CRT flicker.",
+			"preview": "retro_crt.gif"
+		},
+		{
+			"id": "hacker_theme",
+			"name": "Hacker Theme",
+			"cost": 20,
+			"description": "A top-secret hacker den background. Only for the elite.",
+			"preview": "hacker_theme.png"
+		}
+	],
+	"cursor": [
+		{
+			"id": "terminal_block",
+			"name": "Terminal Block",
+			"cost": 3,
+			"description": "Classic terminal-style block cursor.",
+			"preview": "terminal_block.png"
+		},
+		{
+			"id": "rainbow_cursor",
+			"name": "Rainbow Cursor",
+			"cost": 4,
+			"description": "A cursor that cycles through all the colors of the rainbow.",
+			"preview": "rainbow_cursor.gif"
+		},
+		{
+			"id": "neon_pointer",
+			"name": "Neon Code Pointer",
+			"cost": 5,
+			"description": "A glowing neon pointer for extra style.",
+			"preview": "neon_pointer.png"
+		},
+		{
+			"id": "golden_cursor",
+			"name": "Golden Cursor",
+			"cost": 15,
+			"description": "A shimmering golden cursor for the ultimate coder.",
+			"preview": "golden_cursor.gif"
+		}
+	],
+	"click_effect": [
+		{
+			"id": "spark_click",
+			"name": "Spark Click",
+			"cost": 3,
+			"description": "Each click explodes in a shower of sparks.",
+			"preview": "spark_click.gif"
+		},
+		{
+			"id": "code_bubble",
+			"name": "Code Bubbles",
+			"cost": 4,
+			"description": "Floating code bubbles appear with every click.",
+			"preview": "code_bubble.gif"
+		},
+		{
+			"id": "mini_explosion",
+			"name": "Mini Explosion",
+			"cost": 6,
+			"description": "A tiny explosion for each click—it's fun!",
+			"preview": "mini_explosion.gif"
+		}
+	],
+	"sound_pack": [
+		{
+			"id": "mech_keys",
+			"name": "Mechanical Keys",
+			"cost": 2,
+			"description": "Mechanical keyboard clicks for every action.",
+			"preview": "mech_keys.mp3"
+		},
+		{
+			"id": "typewriter",
+			"name": "Typewriter",
+			"cost": 3,
+			"description": "Classic typewriter sounds on every click.",
+			"preview": "typewriter.mp3"
+		},
+		{
+			"id": "synth_beeps",
+			"name": "Synth Beeps",
+			"cost": 5,
+			"description": "Retro synthy beeps with every action.",
+			"preview": "synth_beeps.mp3"
+		}
+	]
+}
+
 var recent_clicks_timestamps = []
 var recent_lines_timestamps = []
 
+var flair_credits = 0
 var power = 1
 var clicks = 0
 var score = 0
@@ -422,7 +559,12 @@ var max_line_timeframe = 0
 @onready var texture_rect := $AchievementDisplay/TextureRect
 @onready var display = $AchievementDisplay
 @onready var item = preload("res://item.tscn")
-@onready var shop_container = $Shop/ScrollContainer/VBoxContainer
+@onready var shop_container = $Shop/TabContainer/TOOLS/VBoxContainer
+@onready var background_flair_container = $Shop/TabContainer/FLAIRS/Backgrounds/VBoxContainer
+@onready var cursors_flair_container = $Shop/TabContainer/FLAIRS/Cursors/VBoxContainer
+@onready var effects_flair_container = $Shop/TabContainer/FLAIRS/Effects/VBoxContainer
+@onready var sounds_flair_container = $Shop/TabContainer/FLAIRS/Sounds/VBoxContainer
+
 
 func _ready():
 	for ach in achievements:
@@ -435,8 +577,17 @@ func _ready():
 		mat.set_shader_parameter("rect_size", subviewport.size)
 	for upgrade in upgrades:
 		var i = item.instantiate()
-		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
+		i.setup_upgrade(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 		shop_container.add_child(i)
+	for cos_type in cosmetics.keys():
+		for cos in cosmetics[cos_type]:
+			var i = item.instantiate()
+			i.setup_cosmetic(cos["name"], cos["description"], cos["cost"], cos["preview"], cos_type)
+			match cos_type:
+				"background": background_flair_container.add_child(i)
+				"cursor": cursors_flair_container.add_child(i)
+				"click_effect": effects_flair_container.add_child(i)
+				"sound_pack": sounds_flair_container.add_child(i)
 
 func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
@@ -485,7 +636,7 @@ func check_achievements() -> void:
 		else:
 			if check_unlock(ach["requirement"]):
 				ach["unlocked"] = true
-				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]])
+				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]], ach["flair_credits"])
 
 func _on_texture_button_pressed() -> void:
 	score += power

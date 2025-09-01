@@ -17,18 +17,22 @@ var _blink_time := 0.0
 
 @onready var label := $SubViewport/Label
 @onready var timer = $Timer
+@onready var main = $".."
+@onready var flair_label = $"../FlairLabel"
 
 func _ready():
 	label.bbcode_enabled = true
 
-func display(content):
+func display(content, flairs):
 	label.text = ""
 	if visible:
-		buffer.append(content)
+		buffer.append([content, flairs])
 		return
 	show()
 	lines = content
 	_start_typing()
+	main.flair_credits += flairs
+	flair_label.text = str(int(floor(main.flair_credits))) + " Flair Credits"
 
 func _start_typing():
 	timer.stop()
@@ -103,4 +107,5 @@ func _on_timer_timeout():
 	hide()
 	label.text = ""
 	if not buffer.is_empty():
-		display(buffer.pop_front())
+		var ach = buffer.pop_front()
+		display(ach[0], ach[1])
