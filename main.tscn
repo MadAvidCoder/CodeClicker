@@ -57,8 +57,9 @@ color = Color(0, 0, 0, 1)
 [node name="MatrixTexture" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 2304.0
+offset_bottom = 1296.0
+scale = Vector2(0.6, 0.6)
 texture = SubResource("ViewportTexture_dg77c")
 
 [node name="ZeroParticles" type="CPUParticles2D" parent="."]
@@ -345,7 +346,7 @@ autostart = true
 [node name="MatrixViewport" type="SubViewport" parent="."]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(2304, 1296)
 
 [node name="MatrixRain" parent="MatrixViewport" instance=ExtResource("2_dg77c")]
 

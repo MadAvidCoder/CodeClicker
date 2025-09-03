@@ -16,7 +16,7 @@ func ready():
 	timer.set_one_shot(false)
 
 func create_random_rain_column():
-	var screen_width = get_tree().get_root().size.x
+	var screen_width = get_tree().get_root().size.x * 2
 	var columns = screen_width / column_width
 	var column = random.randi_range(0, columns - 1)
 	

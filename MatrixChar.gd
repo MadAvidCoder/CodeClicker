@@ -21,4 +21,3 @@ func _ready():
 
 func _draw():
 	draw_char(font, Vector2(0, 0), character, 48, color)
-

@@ -38,7 +38,7 @@ func create_random_letter():
 #	print(characters[i])
 
 	var screen_height = get_tree().get_root().size.y
-	if column_y >= screen_height:
+	if column_y >= screen_height*2:
 		timer.stop()
 		var delete_me_timer = Timer.new()
 		delete_me_timer.timeout.connect(queue_free)
