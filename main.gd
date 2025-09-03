@@ -557,7 +557,10 @@ var max_line_timeframe = 0
 @onready var cursors_flair_container = $Shop/TabContainer/FLAIRS/Cursors/VBoxContainer
 @onready var effects_flair_container = $Shop/TabContainer/FLAIRS/Effects/VBoxContainer
 @onready var sounds_flair_container = $Shop/TabContainer/FLAIRS/Sounds/VBoxContainer
-
+@onready var zero_particles = $ZeroParticles
+@onready var one_particles = $OneParticles
+@onready var matrix_rain = $MatrixTexture
+@onready var matrix_generator = $MatrixViewport/MatrixRain
 
 func _ready():
 	for ach in achievements:
@@ -648,3 +651,29 @@ func count_time(timestamps, timeframe):
 func _on_auto_coder_timer_timeout() -> void:
 	score += auto_per_sec
 	total_score += auto_per_sec
+
+func set_cosmetic(type, what):
+	match type:
+		"background":
+			zero_particles.hide()
+			one_particles.hide()
+			zero_particles.emitting = false
+			one_particles.emitting = false
+			matrix_rain.hide()
+			matrix_generator.timer.stop()
+			match what:
+				"Binary Snowfall":
+					zero_particles.emitting = true
+					one_particles.emitting = true
+					zero_particles.restart()
+					one_particles.restart()
+					zero_particles.show()
+					one_particles.show()
+				"Matrix Rain":
+					matrix_rain.show()
+					matrix_generator.timer.start()
+				_:
+					print("uknown background: " + what)
+		"cursor": print("unknown costmetic: " + what)
+		"click_effect": print("unknown costmetic: " + what)
+		"sound_pack": print("unknown costmetic: " + what)

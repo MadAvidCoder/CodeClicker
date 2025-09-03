@@ -10,6 +10,7 @@ var max_owned
 var owned = 0
 var sold_out = false
 var cosmetic_type
+var flair_label
 
 enum {
 	UPGRADE,
@@ -17,6 +18,7 @@ enum {
 }
 
 var type
+var what
 
 func setup_upgrade(title, description, item_cost, item_effect, price_multiplier, max_available):
 	max_owned = max_available
@@ -29,11 +31,13 @@ func setup_upgrade(title, description, item_cost, item_effect, price_multiplier,
 	$BuyButton.disabled = true
 	main = $"../../../../.."
 	auto_timer = $"../../../../../AutoCoderTimer"
+	flair_label = $"../../../../../FlairLabel"
 	if title != "Mechanical Keyboard":
 		hide()
 	type = UPGRADE
 
 func setup_cosmetic(title, description, item_cost, item_effect, item_type):
+	what = title
 	effect = item_effect
 	cosmetic_type = item_type
 	cost = item_cost
@@ -43,7 +47,13 @@ func setup_cosmetic(title, description, item_cost, item_effect, item_type):
 	$BuyButton.disabled = true
 	main = $"../../../../../.."
 	auto_timer = $"../../../../../../AutoCoderTimer"
+	flair_label = $"../../../../../../FlairLabel"
 	type = COSMETIC
+	match cosmetic_type:
+		"background": add_to_group("background")
+		"cursor": add_to_group("cursor")
+		"click_effect": add_to_group("click_effect")
+		"sound_pack": add_to_group("sound_pack")
 
 func _process(_delta: float) -> void:
 	if main:
@@ -66,10 +76,11 @@ func _process(_delta: float) -> void:
 					elif not effect.has("auto_code_multiplier"):
 						show()
 		elif type == COSMETIC:
-			if main.flair_credits >= cost:
-				$BuyButton.disabled = false
-			else:
-				$BuyButton.disabled = true
+			if owned == 0:
+				if main.flair_credits >= cost:
+					$BuyButton.disabled = false
+				else:
+					$BuyButton.disabled = true
 
 func _on_buy_button_pressed() -> void:
 	if type == UPGRADE:
@@ -96,3 +107,26 @@ func _on_buy_button_pressed() -> void:
 			if owned >= max_owned:
 				hide()
 				sold_out = true
+	elif type == COSMETIC:
+		if owned == 0:
+			if main.flair_credits >= cost:
+				owned += 1
+				main.flair_credits -= cost
+				flair_label.text = str(int(floor(main.flair_credits))) + " Flair Credits"
+				get_tree().call_group(cosmetic_type, "deactivate", self)
+				main.set_cosmetic(cosmetic_type, what)
+				$BuyButton.text = "Equipped!"
+				$BuyButton.disabled = true
+		else:
+			if $BuyButton.text != "Equipped!":
+				get_tree().call_group(cosmetic_type, "deactivate", self)
+				main.set_cosmetic(cosmetic_type, what)
+				$BuyButton.text = "Equipped!"
+				$BuyButton.disabled = true
+
+func deactivate(caller):
+	if caller == self:
+		return
+	if owned != 0:
+		$BuyButton.text = "Equip"
+		$BuyButton.disabled = false

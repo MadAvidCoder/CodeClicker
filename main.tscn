@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=18 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bh3guruokncf6" path="res://matrix.tscn" id="2_dg77c"]
 [ext_resource type="BitMap" uid="uid://bxin2asb7nbj0" path="res://keyboard_map.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://7cd601pdlh3p" path="res://one.png" id="3_efxa6"]
 [ext_resource type="Script" uid="uid://b3f21sr2ldxmy" path="res://texture_button.gd" id="4_1bvp3"]
@@ -11,6 +12,9 @@
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dgxekk4fp5li0" path="res://zero.png" id="10_4c57u"]
 [ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dg77c"]
+viewport_path = NodePath("MatrixViewport")
 
 [sub_resource type="Gradient" id="Gradient_efxa6"]
 colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
@@ -50,9 +54,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="MatrixTexture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("ViewportTexture_dg77c")
+
 [node name="ZeroParticles" type="CPUParticles2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(438.5, 0)
+emitting = false
 amount = 75
 texture = ExtResource("10_4c57u")
 lifetime = 7.5
@@ -71,6 +83,7 @@ color_ramp = SubResource("Gradient_efxa6")
 [node name="OneParticles" type="CPUParticles2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(438.5, 0)
+emitting = false
 amount = 75
 texture = ExtResource("3_efxa6")
 lifetime = 7.5
@@ -145,6 +158,7 @@ horizontal_alignment = 1
 
 [node name="AchievementDisplay" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_left = -138.0
 offset_right = -98.0
@@ -327,6 +341,13 @@ layout_mode = 2
 
 [node name="AutoCoderTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="MatrixViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+
+[node name="MatrixRain" parent="MatrixViewport" instance=ExtResource("2_dg77c")]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
