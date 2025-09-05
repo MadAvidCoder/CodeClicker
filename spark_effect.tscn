@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://n46xy3w6bjyx"]
+
+[ext_resource type="Script" uid="uid://crkne3p5quw0c" path="res://spark_effect.gd" id="1_dcyct"]
+
+[sub_resource type="Gradient" id="Gradient_vy6ss"]
+offsets = PackedFloat32Array(0.0598802, 0.251497, 0.42515, 0.616766, 0.832335)
+colors = PackedColorArray(1, 0.475, 0.37, 1, 1, 0.75, 0.4, 1, 1, 0.647059, 0, 1, 1, 0.939, 0.39, 1, 1, 0.270588, 0, 1)
+
+[node name="SparkEffect" type="CPUParticles2D"]
+z_index = 1
+emitting = false
+amount = 45
+lifetime = 0.25
+one_shot = true
+direction = Vector2(0, -1)
+spread = 120.0
+initial_velocity_min = 220.0
+initial_velocity_max = 420.0
+color_initial_ramp = SubResource("Gradient_vy6ss")
+script = ExtResource("1_dcyct")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

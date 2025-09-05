@@ -539,6 +539,7 @@ var auto_per_sec = 0
 var auto_speed = 1
 var max_click_timeframe = 0
 var max_line_timeframe = 0
+var cur_effect = null
 
 @onready var label = $Label
 @onready var subviewport := $AchievementDisplay/SubViewport
@@ -592,6 +593,11 @@ func cleanup_timestamps():
 		recent_clicks_timestamps.remove_at(0)
 	while recent_lines_timestamps.size() > 0 and now - recent_lines_timestamps[0] > max_line_timeframe:
 		recent_lines_timestamps.remove_at(0)
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		match cur_effect:
+			"spark": spawn_spark_effect(event.position)
 
 func check_unlock(requirements: Dictionary) -> bool:
 	if requirements.has("no_upgrades") and upgrades_bought > 0:
@@ -683,7 +689,9 @@ func set_cosmetic(type, what):
 				"Terminal Block": set_terminal_block_cursor()
 				"Neon Code Pointer": Input.set_custom_mouse_cursor(load("res://neon_cursor.png"))
 				"Golden Cursor": Input.set_custom_mouse_cursor(load("res://gold.png"))
-		"click_effect": print("unknown costmetic: " + what)
+		"click_effect":
+			match what:
+				"Spark Click": cur_effect = "spark"
 		"sound_pack": print("unknown costmetic: " + what)
 
 func set_terminal_block_cursor():
@@ -691,3 +699,9 @@ func set_terminal_block_cursor():
 	image.fill(Color(0.2, 1.0, 0.4, 1.0))
 	var tex = ImageTexture.create_from_image(image)
 	Input.set_custom_mouse_cursor(tex)
+
+func spawn_spark_effect(position: Vector2):
+	var effect = preload("res://spark_effect.tscn").instantiate()
+	effect.global_position = position
+	get_tree().current_scene.add_child(effect)
+	effect.emitting = true
