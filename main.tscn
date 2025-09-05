@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=19 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
@@ -12,6 +12,19 @@
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dgxekk4fp5li0" path="res://zero.png" id="10_4c57u"]
 [ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("6_7mycd")
+shader_parameter/rect_size = Vector2(1152, 648)
+shader_parameter/scanline_spacing = 0.03
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_strength = 0.8
+shader_parameter/curvature_x = 0.14
+shader_parameter/curvature_y = 0.09
+shader_parameter/vignette_strength = 0.8
+shader_parameter/glow_strength = 0.1
+shader_parameter/background_green = Vector3(0, 0.07, 0.025)
+shader_parameter/text_green = Vector3(0.076, 0.27, 0.119)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dg77c"]
 viewport_path = NodePath("MatrixViewport")
@@ -53,6 +66,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="CRTBackground" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dg77c")
+layout_mode = 0
+offset_left = -71.0
+offset_top = -42.0
+offset_right = 1109.0
+offset_bottom = 688.0
+color = Color(0.0666667, 0.0901961, 0.0666667, 1)
 
 [node name="MatrixTexture" type="TextureRect" parent="."]
 visible = false
@@ -184,7 +207,6 @@ offset_bottom = -412.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(125, 42)
-color = Color(0.0657, 0.09, 0.0657, 1)
 
 [node name="Label" type="RichTextLabel" parent="AchievementDisplay/SubViewport"]
 offset_left = 6.5

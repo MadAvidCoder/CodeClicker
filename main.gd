@@ -561,6 +561,7 @@ var max_line_timeframe = 0
 @onready var one_particles = $OneParticles
 @onready var matrix_rain = $MatrixTexture
 @onready var matrix_generator = $MatrixViewport/MatrixRain
+@onready var crt_background = $CRTBackground
 
 func _ready():
 	for ach in achievements:
@@ -661,6 +662,7 @@ func set_cosmetic(type, what):
 			one_particles.emitting = false
 			matrix_rain.hide()
 			matrix_generator.timer.stop()
+			crt_background.hide()
 			match what:
 				"Binary Snowfall":
 					zero_particles.emitting = true
@@ -672,6 +674,8 @@ func set_cosmetic(type, what):
 				"Matrix Rain":
 					matrix_rain.show()
 					matrix_generator.timer.start()
+				"Retro CRT":
+					crt_background.show()
 				_:
 					print("uknown background: " + what)
 		"cursor": print("unknown costmetic: " + what)
