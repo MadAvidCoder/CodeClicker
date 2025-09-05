@@ -444,7 +444,7 @@ var cosmetics = {
 		{
 			"id": "hacker_theme",
 			"name": "Hacker Theme",
-			"cost": 20,
+			"cost": 12,
 			"description": "A top-secret hacker den background. Only for the elite.",
 			"preview": "hacker_theme.png"
 		}
@@ -458,13 +458,6 @@ var cosmetics = {
 			"preview": "terminal_block.png"
 		},
 		{
-			"id": "rainbow_cursor",
-			"name": "Rainbow Cursor",
-			"cost": 4,
-			"description": "A cursor that cycles through all the colors of the rainbow.",
-			"preview": "rainbow_cursor.gif"
-		},
-		{
 			"id": "neon_pointer",
 			"name": "Neon Code Pointer",
 			"cost": 5,
@@ -474,7 +467,7 @@ var cosmetics = {
 		{
 			"id": "golden_cursor",
 			"name": "Golden Cursor",
-			"cost": 15,
+			"cost": 8,
 			"description": "A shimmering golden cursor for the ultimate coder.",
 			"preview": "golden_cursor.gif"
 		}
@@ -530,7 +523,7 @@ var cosmetics = {
 var recent_clicks_timestamps = []
 var recent_lines_timestamps = []
 
-var flair_credits = 0
+var flair_credits = 20
 var power = 1
 var clicks = 0
 var score = 0
@@ -562,6 +555,8 @@ var max_line_timeframe = 0
 @onready var matrix_rain = $MatrixTexture
 @onready var matrix_generator = $MatrixViewport/MatrixRain
 @onready var crt_background = $CRTBackground
+@onready var code_scoller = $CodeScroller
+@onready var neon_tex
 
 func _ready():
 	for ach in achievements:
@@ -663,6 +658,7 @@ func set_cosmetic(type, what):
 			matrix_rain.hide()
 			matrix_generator.timer.stop()
 			crt_background.hide()
+			code_scoller.hide()
 			match what:
 				"Binary Snowfall":
 					zero_particles.emitting = true
@@ -676,8 +672,22 @@ func set_cosmetic(type, what):
 					matrix_generator.timer.start()
 				"Retro CRT":
 					crt_background.show()
-				_:
-					print("uknown background: " + what)
-		"cursor": print("unknown costmetic: " + what)
+				"Hacker Theme":
+					code_scoller.show()
+					code_scoller.display_lines = []
+					code_scoller.typing_index = 0
+					code_scoller.typing = true
+					code_scoller._update_label()
+		"cursor":
+			match what:
+				"Terminal Block": set_terminal_block_cursor()
+				"Neon Code Pointer": Input.set_custom_mouse_cursor(load("res://neon_cursor.png"))
+				"Golden Cursor": Input.set_custom_mouse_cursor(load("res://gold.png"))
 		"click_effect": print("unknown costmetic: " + what)
 		"sound_pack": print("unknown costmetic: " + what)
+
+func set_terminal_block_cursor():
+	var image = Image.create(16, 24, false, Image.FORMAT_RGBA8)
+	image.fill(Color(0.2, 1.0, 0.4, 1.0))
+	var tex = ImageTexture.create_from_image(image)
+	Input.set_custom_mouse_cursor(tex)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=20 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bh3guruokncf6" path="res://matrix.tscn" id="2_dg77c"]
 [ext_resource type="BitMap" uid="uid://bxin2asb7nbj0" path="res://keyboard_map.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://7cd601pdlh3p" path="res://one.png" id="3_efxa6"]
+[ext_resource type="Script" uid="uid://bf718qmkbpj1n" path="res://code_scroller.gd" id="3_ycdy4"]
 [ext_resource type="Script" uid="uid://b3f21sr2ldxmy" path="res://texture_button.gd" id="4_1bvp3"]
 [ext_resource type="FontFile" uid="uid://d1o7fr6w7chnu" path="res://CourierPrime-Bold.ttf" id="5_272bh"]
 [ext_resource type="Script" uid="uid://d31pji8vuw1f6" path="res://achievement_display.gd" id="6_5vw27"]
@@ -76,6 +77,28 @@ offset_top = -42.0
 offset_right = 1109.0
 offset_bottom = 688.0
 color = Color(0.0666667, 0.0901961, 0.0666667, 1)
+
+[node name="CodeScroller" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("3_ycdy4")
+
+[node name="Label" type="Label" parent="CodeScroller"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_efxa6")
+
+[node name="ColorRect" type="ColorRect" parent="CodeScroller"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.556863)
 
 [node name="MatrixTexture" type="TextureRect" parent="."]
 visible = false
