@@ -77,7 +77,7 @@ func _update_label():
 	var to_show = ""
 	for l in display_lines:
 		to_show += l + "\n"
-	to_show += typing_line.substr(0, typing_index)
+	to_show += typing_line.left(typing_index)
 	label.text = to_show
 
 func _process(delta):
