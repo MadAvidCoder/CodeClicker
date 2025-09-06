@@ -598,6 +598,7 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		match cur_effect:
 			"spark": spawn_spark_effect(event.position)
+			"bubbles": spawn_code_bubble(event.position)
 
 func check_unlock(requirements: Dictionary) -> bool:
 	if requirements.has("no_upgrades") and upgrades_bought > 0:
@@ -692,6 +693,7 @@ func set_cosmetic(type, what):
 		"click_effect":
 			match what:
 				"Spark Click": cur_effect = "spark"
+				"Code Bubbles": cur_effect = "bubbles"
 		"sound_pack": print("unknown costmetic: " + what)
 
 func set_terminal_block_cursor():
@@ -705,3 +707,14 @@ func spawn_spark_effect(position: Vector2):
 	effect.global_position = position
 	get_tree().current_scene.add_child(effect)
 	effect.emitting = true
+
+func spawn_code_bubble(position: Vector2):
+	var bubble = preload("res://bubble_effect.tscn").instantiate()
+	var offset = Vector2(
+		randf_range(-22, 22),
+		randf_range(-10, 10)
+	)
+	bubble.global_position = position + offset
+	bubble.scale.x = randf_range(0.03, 0.09)
+	bubble.scale.y = bubble.scale.x
+	get_tree().current_scene.add_child(bubble)
