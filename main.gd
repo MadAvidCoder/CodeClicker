@@ -481,7 +481,7 @@ var cur_effect = null
 @onready var matrix_rain = $MatrixTexture
 @onready var matrix_generator = $MatrixViewport/MatrixRain
 @onready var crt_background = $CRTBackground
-@onready var code_scoller = $CodeScroller
+@onready var code_scroller = $CodeScroller
 
 var neon_tex
 
@@ -585,7 +585,7 @@ func set_cosmetic(type, what):
 			matrix_rain.hide()
 			matrix_generator.timer.stop()
 			crt_background.hide()
-			code_scoller.hide()
+			code_scroller.hide()
 			match what:
 				"Binary Snowfall":
 					zero_particles.emitting = true
@@ -600,11 +600,11 @@ func set_cosmetic(type, what):
 				"Retro CRT":
 					crt_background.show()
 				"Hacker Theme":
-					code_scoller.show()
-					code_scoller.display_lines = []
-					code_scoller.typing_index = 0
-					code_scoller.typing = true
-					code_scoller._update_label()
+					code_scroller.show()
+					code_scroller.display_lines = []
+					code_scroller.typing_index = 0
+					code_scroller.typing = true
+					code_scroller._update_label()
 		"cursor":
 			match what:
 				"Terminal Block": set_terminal_block_cursor()
