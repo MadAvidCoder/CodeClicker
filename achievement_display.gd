@@ -1,19 +1,20 @@
 extends Control
 
+const typing_speed: float = 0.055
+const line_pause: float = 1
+const cursor_blink_speed: float = 0.35
+
 var lines = []
 var buffer = []
-var typing_speed := 0.055
-var line_pause := 1
-var cursor_blink_speed := 0.35
 
-var _current_line := 0
-var _current_char := 0
-var _displayed_text := ""
-var _is_typing_line := false
-var _is_pausing_before_line := false
+var _current_line: int = 0
+var _current_char: int = 0
+var _displayed_text: String = ""
+var _is_typing_line: bool = false
+var _is_pausing_before_line: bool = false
 
-var _cursor_visible := true
-var _blink_time := 0.0
+var _cursor_visible: bool = true
+var _blink_time: float = 0.0
 
 @onready var label := $SubViewport/Label
 @onready var timer = $Timer

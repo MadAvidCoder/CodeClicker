@@ -3,15 +3,15 @@ extends Node
 class_name RainColumn
 
 
-const characters = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+-=`{}[]:;'<>?,./|\'"
+const characters: String = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()_+-=`{}[]:;'<>?,./|\'"
 
-var sprites = {}
-var timer : Timer = null
+var sprites: Dictionary = {}
+var timer: Timer = null
 var random = RandomNumberGenerator.new()
-var template : PackedScene = load("res://matrix_char.tscn")
-var column_x : int
-var column_y : int = 0
-const y_step : int = 42
+var template: PackedScene = load("res://matrix_char.tscn")
+var column_x: int
+var column_y: int = 0
+const y_step: int = 42
 
 func _init(x : int):
 	column_x = x

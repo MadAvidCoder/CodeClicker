@@ -1,8 +1,8 @@
 extends Sprite2D
 class_name MatrixChar
 
-@export var font : Font
-@export var color : Color
+@export var font: Font
+@export var color: Color
 
 
 var character : String

@@ -7,7 +7,7 @@ var achievements = [
 		"description": "Write your very first line of code.",
 		"requirement": { "type": "total_code_lines", "value": 1 },
 		"unlocked": false,
-		"flair_credits": 1
+		"flair_credits": 2
 	},
 	{
 		"id": "syntax_student",
@@ -15,7 +15,7 @@ var achievements = [
 		"description": "Write 100 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 100 },
 		"unlocked": false,
-		"flair_credits": 2
+		"flair_credits": 3
 	},
 	{
 		"id": "debugging_beginner",
@@ -23,7 +23,7 @@ var achievements = [
 		"description": "Click 10 times in 5 seconds (debug those bugs fast!).",
 		"requirement": { "type": "clicks_in_time", "value": 10, "timeframe": 5 },
 		"unlocked": false,
-		"flair_credits": 2
+		"flair_credits": 3
 	},
 	{
 		"id": "commit_pusher",
@@ -31,7 +31,7 @@ var achievements = [
 		"description": "Reach 1,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000 },
 		"unlocked": false,
-		"flair_credits": 5
+		"flair_credits": 6
 	},
 	{
 		"id": "automation_script",
@@ -50,14 +50,6 @@ var achievements = [
 		"flair_credits": 5
 	},
 	{
-		"id": "hackathon_participant",
-		"name": "Hackathon Participant",
-		"description": "Click a rare 'Hackathon' event button.",
-		"requirement": { "type": "hackathon_clicks", "value": 1 },
-		"unlocked": false,
-		"flair_credits": 5
-	},
-	{
 		"id": "pull_request_pro",
 		"name": "Pull Request Pro",
 		"description": "Upgrade an auto-coder to level 5.",
@@ -71,14 +63,6 @@ var achievements = [
 		"description": "Write 500 lines of code in one minute.",
 		"requirement": { "type": "code_lines_in_time", "value": 500, "timeframe": 60 },
 		"unlocked": false,
-		"flair_credits": 7
-	},
-	{
-		"id": "legacy_maintainer",
-		"name": "Legacy Maintainer",
-		"description": "Prestige for the first time and start a new project.",
-		"requirement": { "type": "prestiges", "value": 1 },
-		"unlocked": false,
 		"flair_credits": 8
 	},
 	{
@@ -87,7 +71,7 @@ var achievements = [
 		"description": "Write 1,000,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000000 },
 		"unlocked": false,
-		"flair_credits": 30
+		"flair_credits": 35
 	},
 	{
 		"id": "merge_conflict",
@@ -95,7 +79,7 @@ var achievements = [
 		"description": "Reach 50,000 lines of code without buying any upgrades.",
 		"requirement": { "type": "total_code_lines", "value": 50000, "no_upgrades": true },
 		"unlocked": false,
-		"flair_credits": 15
+		"flair_credits": 50
 	},
 	{
 		"id": "code_reviewed",
@@ -103,37 +87,13 @@ var achievements = [
 		"description": "Manually click 1,000 times.",
 		"requirement": { "type": "manual_clicks", "value": 1000 },
 		"unlocked": false,
-		"flair_credits": 4
-	},
-	{
-		"id": "dark_theme_activated",
-		"name": "Dark Theme Activated",
-		"description": "Unlock the dark theme for your editor.",
-		"requirement": { "type": "theme_unlocked", "theme": "dark" },
-		"unlocked": false,
-		"flair_credits": 2
+		"flair_credits": 6
 	},
 	{
 		"id": "full_stack_dev",
 		"name": "Full Stack Dev",
 		"description": "Own at least one of every upgrade type.",
 		"requirement": { "type": "has_each_upgrade_type", "value": 1 },
-		"unlocked": false,
-		"flair_credits": 8
-	},
-	{
-		"id": "lint_free",
-		"name": "Lint Free",
-		"description": "Write 10,000 lines of code without any 'bug' events.",
-		"requirement": { "type": "code_lines_without_bug", "value": 10000 },
-		"unlocked": false,
-		"flair_credits": 6
-	},
-	{
-		"id": "refactor_master",
-		"name": "Refactor Master",
-		"description": "Reset (prestige) five times.",
-		"requirement": { "type": "prestiges", "value": 5 },
 		"unlocked": false,
 		"flair_credits": 12
 	},
@@ -143,15 +103,7 @@ var achievements = [
 		"description": "Achieve 50 clicks in 10 seconds.",
 		"requirement": { "type": "clicks_in_time", "value": 50, "timeframe": 10 },
 		"unlocked": false,
-		"flair_credits": 5
-	},
-	{
-		"id": "documentation_guru",
-		"name": "Documentation Guru",
-		"description": "View the help/about screen.",
-		"requirement": { "type": "viewed_help", "value": 1 },
-		"unlocked": false,
-		"flair_credits": 1
+		"flair_credits": 6
 	},
 	{
 		"id": "copilot_friend",
@@ -159,7 +111,7 @@ var achievements = [
 		"description": "Let an auto-coder write 10,000 lines for you.",
 		"requirement": { "type": "auto_lines_written", "value": 10000 },
 		"unlocked": false,
-		"flair_credits": 6
+		"flair_credits": 10
 	}
 ]
 
@@ -491,31 +443,8 @@ var cosmetics = {
 			"id": "mini_explosion",
 			"name": "Mini Explosion",
 			"cost": 6,
-			"description": "A tiny explosion for each click—it's fun!",
+			"description": "A tiny explosion for each click - it's fun!",
 			"preview": "mini_explosion.gif"
-		}
-	],
-	"sound_pack": [
-		{
-			"id": "mech_keys",
-			"name": "Mechanical Keys",
-			"cost": 2,
-			"description": "Mechanical keyboard clicks for every action.",
-			"preview": "mech_keys.mp3"
-		},
-		{
-			"id": "typewriter",
-			"name": "Typewriter",
-			"cost": 3,
-			"description": "Classic typewriter sounds on every click.",
-			"preview": "typewriter.mp3"
-		},
-		{
-			"id": "synth_beeps",
-			"name": "Synth Beeps",
-			"cost": 5,
-			"description": "Retro synthy beeps with every action.",
-			"preview": "synth_beeps.mp3"
 		}
 	]
 }
@@ -523,22 +452,19 @@ var cosmetics = {
 var recent_clicks_timestamps = []
 var recent_lines_timestamps = []
 
-var flair_credits = 20
-var power = 1
-var clicks = 0
-var score = 0
-var total_score = 0
-var upgrades_bought = 0
-var auto_coders_bought = 0
-var hackathon_clicks = 0
-var max_auto_level = 0
-var prestige_count = 0
-var auto_lines_written = 0
-var help_viewed = false
-var auto_per_sec = 0
-var auto_speed = 1
-var max_click_timeframe = 0
-var max_line_timeframe = 0
+var flair_credits: int = 0
+var power: float = 1
+var clicks: int = 0
+var score: float = 0
+var total_score: float = 0
+var upgrades_bought: int = 0
+var auto_coders_bought: int = 0
+var max_auto_level: float = 0
+var auto_lines_written: float = 0
+var auto_per_sec: float = 0
+var auto_speed: float = 1
+var max_click_timeframe: int = 0
+var max_line_timeframe: int = 0
 var cur_effect = null
 
 @onready var label = $Label
@@ -550,14 +476,14 @@ var cur_effect = null
 @onready var background_flair_container = $Shop/TabContainer/FLAIRS/Backgrounds/VBoxContainer
 @onready var cursors_flair_container = $Shop/TabContainer/FLAIRS/Cursors/VBoxContainer
 @onready var effects_flair_container = $Shop/TabContainer/FLAIRS/Effects/VBoxContainer
-@onready var sounds_flair_container = $Shop/TabContainer/FLAIRS/Sounds/VBoxContainer
 @onready var zero_particles = $ZeroParticles
 @onready var one_particles = $OneParticles
 @onready var matrix_rain = $MatrixTexture
 @onready var matrix_generator = $MatrixViewport/MatrixRain
 @onready var crt_background = $CRTBackground
 @onready var code_scoller = $CodeScroller
-@onready var neon_tex
+
+var neon_tex
 
 func _ready():
 	for ach in achievements:
@@ -579,7 +505,6 @@ func _ready():
 				"background": background_flair_container.add_child(i) 
 				"cursor": cursors_flair_container.add_child(i)
 				"click_effect": effects_flair_container.add_child(i)
-				"sound_pack": sounds_flair_container.add_child(i)
 			i.setup_cosmetic(cosm["name"], cosm["description"], cosm["cost"], cosm["preview"], cos_type)
 
 func _process(_delta: float) -> void:
@@ -613,16 +538,10 @@ func check_unlock(requirements: Dictionary) -> bool:
 			return auto_coders_bought >= requirements["value"]
 		"upgrades_bought":
 			return upgrades_bought >= requirements["value"]
-		"hackathon_clicks":
-			return hackathon_clicks >= requirements["value"]
 		"auto_coder_level":
 			return max_auto_level >= requirements["value"]
-		"prestiges":
-			return prestige_count >= requirements["value"]
 		"auto_lines_written":
 			return auto_lines_written >= requirements["value"]
-		"viewed_help":
-			return help_viewed
 		"clicks_in_time":
 			return count_time(recent_clicks_timestamps, requirements["timeframe"]) >= requirements["value"]
 		"code_lines_in_time":
@@ -696,7 +615,6 @@ func set_cosmetic(type, what):
 				"Spark Click": cur_effect = "spark"
 				"Code Bubbles": cur_effect = "bubbles"
 				"Mini Explosion": cur_effect = "explosion"
-		"sound_pack": print("unknown costmetic: " + what)
 
 func set_terminal_block_cursor():
 	var image = Image.create(16, 24, false, Image.FORMAT_RGBA8)

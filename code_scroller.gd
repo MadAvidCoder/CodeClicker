@@ -1,6 +1,6 @@
 extends Control
 
-var code_lines = [
+const code_lines = [
 	"$  for (int i = 0; i < 256; i++) { buffer[i] = decrypt(input[i], key + i); // Decrypt buffer with rolling key }",
 	"$  if (flag == true && is_admin(user)) { log_access(user, timestamp); send_alert('admin login'); }",
 	"$  def hack_the_system(username, password, ip_address, port): # Attempt remote exploit and log results",
@@ -36,16 +36,15 @@ var code_lines = [
 	"$  netstat -an | grep 'LISTEN' | awk '{print $4, $6}' > /tmp/open_ports.txt",
 	"$  # Automated backup: tar -czvf /backup/config_$(date +%Y%m%d).tar.gz /etc /var/www /opt"
 ]
+const code_color: Color = Color(0.2, 1.0, 0.3)
+const bg_color: Color = Color(0.02, 0.06, 0.08)
+const max_display_lines = 26
 
 var display_lines = []
-var typing_line = ""
-var typing_index = 0
-var line_delay = 0.1
-var max_display_lines = 26
-var code_color = Color(0.2, 1.0, 0.3)
-var bg_color = Color(0.02, 0.06, 0.08)
-var typing = false
-var time_since = 0
+var typing_line: String = ""
+var typing_index: int = 0
+var typing: bool = false
+var time_since: float = 0
 
 @onready var label: Label = $Label
 

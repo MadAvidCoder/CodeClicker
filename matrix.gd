@@ -1,8 +1,8 @@
 extends Node
 
-var timer : Timer = null
+var timer: Timer = null
 var random = RandomNumberGenerator.new()
-const column_width = 30.0
+const column_width: float = 30.0
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
