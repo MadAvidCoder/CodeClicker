@@ -1,7 +1,7 @@
 extends Panel
 
-var main
-var auto_timer
+var main: Control
+var auto_timer: Timer
 
 var cost = INF
 var effect
