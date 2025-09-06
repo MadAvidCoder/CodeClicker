@@ -1,7 +1,6 @@
 extends TextureButton
 
-var dir = 1
-var t = 0
+var t: float = 0
 
 @onready var label = $"../Label"
 

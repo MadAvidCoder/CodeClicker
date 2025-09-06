@@ -6,140 +6,112 @@ var achievements = [
 		"name": "Hello, World!",
 		"description": "Write your very first line of code.",
 		"requirement": { "type": "total_code_lines", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 2
 	},
 	{
 		"id": "syntax_student",
 		"name": "Syntax Student",
 		"description": "Write 100 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 100 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 3
 	},
 	{
 		"id": "debugging_beginner",
 		"name": "Debugging Beginner",
 		"description": "Click 10 times in 5 seconds (debug those bugs fast!).",
 		"requirement": { "type": "clicks_in_time", "value": 10, "timeframe": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 3
 	},
 	{
 		"id": "commit_pusher",
 		"name": "Commit Pusher",
 		"description": "Reach 1,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 6
 	},
 	{
 		"id": "automation_script",
 		"name": "Automation Script",
 		"description": "Unlock your first auto-coder.",
 		"requirement": { "type": "auto_coders_bought", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 3
 	},
 	{
 		"id": "framework_founder",
 		"name": "Framework Founder",
 		"description": "Unlock 10 code upgrades.",
 		"requirement": { "type": "upgrades_bought", "value": 10 },
-		"unlocked": false
-	},
-	{
-		"id": "hackathon_participant",
-		"name": "Hackathon Participant",
-		"description": "Click a rare 'Hackathon' event button.",
-		"requirement": { "type": "hackathon_clicks", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 5
 	},
 	{
 		"id": "pull_request_pro",
 		"name": "Pull Request Pro",
 		"description": "Upgrade an auto-coder to level 5.",
 		"requirement": { "type": "auto_coder_level", "value": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 4
 	},
 	{
 		"id": "hackathon_hero",
 		"name": "Hackathon Hero",
 		"description": "Write 500 lines of code in one minute.",
 		"requirement": { "type": "code_lines_in_time", "value": 500, "timeframe": 60 },
-		"unlocked": false
-	},
-	{
-		"id": "legacy_maintainer",
-		"name": "Legacy Maintainer",
-		"description": "Prestige for the first time and start a new project.",
-		"requirement": { "type": "prestiges", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 8
 	},
 	{
 		"id": "million_line_club",
 		"name": "Million Line Club",
 		"description": "Write 1,000,000 lines of code.",
 		"requirement": { "type": "total_code_lines", "value": 1000000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 35
 	},
 	{
 		"id": "merge_conflict",
 		"name": "Merge Conflict",
 		"description": "Reach 50,000 lines of code without buying any upgrades.",
 		"requirement": { "type": "total_code_lines", "value": 50000, "no_upgrades": true },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 50
 	},
 	{
 		"id": "code_reviewed",
 		"name": "Code Reviewed",
 		"description": "Manually click 1,000 times.",
 		"requirement": { "type": "manual_clicks", "value": 1000 },
-		"unlocked": false
-	},
-	{
-		"id": "dark_theme_activated",
-		"name": "Dark Theme Activated",
-		"description": "Unlock the dark theme for your editor.",
-		"requirement": { "type": "theme_unlocked", "theme": "dark" },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 6
 	},
 	{
 		"id": "full_stack_dev",
 		"name": "Full Stack Dev",
 		"description": "Own at least one of every upgrade type.",
 		"requirement": { "type": "has_each_upgrade_type", "value": 1 },
-		"unlocked": false
-	},
-	{
-		"id": "lint_free",
-		"name": "Lint Free",
-		"description": "Write 10,000 lines of code without any 'bug' events.",
-		"requirement": { "type": "code_lines_without_bug", "value": 10000 },
-		"unlocked": false
-	},
-	{
-		"id": "refactor_master",
-		"name": "Refactor Master",
-		"description": "Reset (prestige) five times.",
-		"requirement": { "type": "prestiges", "value": 5 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 12
 	},
 	{
 		"id": "speed_typist",
 		"name": "Speed Typist",
 		"description": "Achieve 50 clicks in 10 seconds.",
 		"requirement": { "type": "clicks_in_time", "value": 50, "timeframe": 10 },
-		"unlocked": false
-	},
-	{
-		"id": "documentation_guru",
-		"name": "Documentation Guru",
-		"description": "View the help/about screen.",
-		"requirement": { "type": "viewed_help", "value": 1 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 6
 	},
 	{
 		"id": "copilot_friend",
 		"name": "Copilot Friend",
 		"description": "Let an auto-coder write 10,000 lines for you.",
 		"requirement": { "type": "auto_lines_written", "value": 10000 },
-		"unlocked": false
+		"unlocked": false,
+		"flair_credits": 10
 	}
 ]
 
@@ -398,31 +370,120 @@ var upgrades = [
 	}
 ]
 
+var cosmetics = {
+	"background": [
+		{
+			"id": "binary_snowfall",
+			"name": "Binary Snowfall",
+			"cost": 2,
+			"description": "Bits and bytes drift gently down your screen.",
+			"preview": "binary_snowfall.gif"
+		},
+		{
+			"id": "matrix_rain",
+			"name": "Matrix Rain",
+			"cost": 4,
+			"description": "Transform your background with digital rain.",
+			"preview": "matrix_rain.gif"
+		},
+		{
+			"id": "retro_crt",
+			"name": "Retro CRT",
+			"cost": 7,
+			"description": "Old-school green phosphor CRT flicker.",
+			"preview": "retro_crt.gif"
+		},
+		{
+			"id": "hacker_theme",
+			"name": "Hacker Theme",
+			"cost": 12,
+			"description": "A top-secret hacker den background. Only for the elite.",
+			"preview": "hacker_theme.png"
+		}
+	],
+	"cursor": [
+		{
+			"id": "terminal_block",
+			"name": "Terminal Block",
+			"cost": 3,
+			"description": "Classic terminal-style block cursor.",
+			"preview": "terminal_block.png"
+		},
+		{
+			"id": "neon_pointer",
+			"name": "Neon Code Pointer",
+			"cost": 5,
+			"description": "A glowing neon pointer for extra style.",
+			"preview": "neon_pointer.png"
+		},
+		{
+			"id": "golden_cursor",
+			"name": "Golden Cursor",
+			"cost": 8,
+			"description": "A shimmering golden cursor for the ultimate coder.",
+			"preview": "golden_cursor.gif"
+		}
+	],
+	"click_effect": [
+		{
+			"id": "spark_click",
+			"name": "Spark Click",
+			"cost": 3,
+			"description": "Each click explodes in a shower of sparks.",
+			"preview": "spark_click.gif"
+		},
+		{
+			"id": "code_bubble",
+			"name": "Code Bubbles",
+			"cost": 4,
+			"description": "Floating code bubbles appear with every click.",
+			"preview": "code_bubble.gif"
+		},
+		{
+			"id": "mini_explosion",
+			"name": "Mini Explosion",
+			"cost": 6,
+			"description": "A tiny explosion for each click - it's fun!",
+			"preview": "mini_explosion.gif"
+		}
+	]
+}
+
 var recent_clicks_timestamps = []
 var recent_lines_timestamps = []
 
-var power = 1
-var clicks = 0
-var score = 0
-var total_score = 0
-var upgrades_bought = 0
-var auto_coders_bought = 0
-var hackathon_clicks = 0
-var max_auto_level = 0
-var prestige_count = 0
-var auto_lines_written = 0
-var help_viewed = false
-var auto_per_sec = 0
-var auto_speed = 1
-var max_click_timeframe = 0
-var max_line_timeframe = 0
+var flair_credits: int = 0
+var power: float = 1
+var clicks: int = 0
+var score: float = 0
+var total_score: float = 0
+var upgrades_bought: int = 0
+var auto_coders_bought: int = 0
+var max_auto_level: float = 0
+var auto_lines_written: float = 0
+var auto_per_sec: float = 0
+var auto_speed: float = 1
+var max_click_timeframe: int = 0
+var max_line_timeframe: int = 0
+var cur_effect = null
 
 @onready var label = $Label
 @onready var subviewport := $AchievementDisplay/SubViewport
 @onready var texture_rect := $AchievementDisplay/TextureRect
 @onready var display = $AchievementDisplay
 @onready var item = preload("res://item.tscn")
-@onready var shop_container = $Shop/ScrollContainer/VBoxContainer
+@onready var shop_container = $Shop/TabContainer/TOOLS/VBoxContainer
+@onready var background_flair_container = $Shop/TabContainer/FLAIRS/Backgrounds/VBoxContainer
+@onready var cursors_flair_container = $Shop/TabContainer/FLAIRS/Cursors/VBoxContainer
+@onready var effects_flair_container = $Shop/TabContainer/FLAIRS/Effects/VBoxContainer
+@onready var zero_particles = $ZeroParticles
+@onready var one_particles = $OneParticles
+@onready var matrix_rain = $MatrixTexture
+@onready var matrix_generator = $MatrixViewport/MatrixRain
+@onready var crt_background = $CRTBackground
+@onready var code_scroller = $CodeScroller
+
+var neon_tex
 
 func _ready():
 	for ach in achievements:
@@ -435,8 +496,16 @@ func _ready():
 		mat.set_shader_parameter("rect_size", subviewport.size)
 	for upgrade in upgrades:
 		var i = item.instantiate()
-		i.setup(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 		shop_container.add_child(i)
+		i.setup_upgrade(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
+	for cos_type in cosmetics.keys():
+		for cosm in cosmetics[cos_type]:
+			var i = item.instantiate()
+			match cos_type:
+				"background": background_flair_container.add_child(i) 
+				"cursor": cursors_flair_container.add_child(i)
+				"click_effect": effects_flair_container.add_child(i)
+			i.setup_cosmetic(cosm["name"], cosm["description"], cosm["cost"], cosm["preview"], cos_type)
 
 func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
@@ -450,6 +519,13 @@ func cleanup_timestamps():
 	while recent_lines_timestamps.size() > 0 and now - recent_lines_timestamps[0] > max_line_timeframe:
 		recent_lines_timestamps.remove_at(0)
 
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		match cur_effect:
+			"spark": spawn_spark_effect(event.position)
+			"bubbles": spawn_code_bubble(event.position)
+			"explosion": spawn_explosion_effect(event.position)
+
 func check_unlock(requirements: Dictionary) -> bool:
 	if requirements.has("no_upgrades") and upgrades_bought > 0:
 		return false
@@ -462,16 +538,10 @@ func check_unlock(requirements: Dictionary) -> bool:
 			return auto_coders_bought >= requirements["value"]
 		"upgrades_bought":
 			return upgrades_bought >= requirements["value"]
-		"hackathon_clicks":
-			return hackathon_clicks >= requirements["value"]
 		"auto_coder_level":
 			return max_auto_level >= requirements["value"]
-		"prestiges":
-			return prestige_count >= requirements["value"]
 		"auto_lines_written":
 			return auto_lines_written >= requirements["value"]
-		"viewed_help":
-			return help_viewed
 		"clicks_in_time":
 			return count_time(recent_clicks_timestamps, requirements["timeframe"]) >= requirements["value"]
 		"code_lines_in_time":
@@ -485,7 +555,7 @@ func check_achievements() -> void:
 		else:
 			if check_unlock(ach["requirement"]):
 				ach["unlocked"] = true
-				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]])
+				display.display(["Achievement Unlocked!", "[" + ach["name"] + "]", ach["description"]], ach["flair_credits"])
 
 func _on_texture_button_pressed() -> void:
 	score += power
@@ -504,3 +574,72 @@ func count_time(timestamps, timeframe):
 func _on_auto_coder_timer_timeout() -> void:
 	score += auto_per_sec
 	total_score += auto_per_sec
+
+func set_cosmetic(type, what):
+	match type:
+		"background":
+			zero_particles.hide()
+			one_particles.hide()
+			zero_particles.emitting = false
+			one_particles.emitting = false
+			matrix_rain.hide()
+			matrix_generator.timer.stop()
+			crt_background.hide()
+			code_scroller.hide()
+			match what:
+				"Binary Snowfall":
+					zero_particles.emitting = true
+					one_particles.emitting = true
+					zero_particles.restart()
+					one_particles.restart()
+					zero_particles.show()
+					one_particles.show()
+				"Matrix Rain":
+					matrix_rain.show()
+					matrix_generator.timer.start()
+				"Retro CRT":
+					crt_background.show()
+				"Hacker Theme":
+					code_scroller.show()
+					code_scroller.display_lines = []
+					code_scroller.typing_index = 0
+					code_scroller.typing = true
+					code_scroller._update_label()
+		"cursor":
+			match what:
+				"Terminal Block": set_terminal_block_cursor()
+				"Neon Code Pointer": Input.set_custom_mouse_cursor(load("res://neon_cursor.png"))
+				"Golden Cursor": Input.set_custom_mouse_cursor(load("res://gold.png"))
+		"click_effect":
+			match what:
+				"Spark Click": cur_effect = "spark"
+				"Code Bubbles": cur_effect = "bubbles"
+				"Mini Explosion": cur_effect = "explosion"
+
+func set_terminal_block_cursor():
+	var image = Image.create(16, 24, false, Image.FORMAT_RGBA8)
+	image.fill(Color(0.2, 1.0, 0.4, 1.0))
+	var tex = ImageTexture.create_from_image(image)
+	Input.set_custom_mouse_cursor(tex)
+
+func spawn_spark_effect(spawn_position: Vector2):
+	var effect = preload("res://spark_effect.tscn").instantiate()
+	effect.global_position = spawn_position
+	get_tree().current_scene.add_child(effect)
+	effect.emitting = true
+
+func spawn_explosion_effect(spawn_position: Vector2):
+	var effect = preload("res://explosion_effect.tscn").instantiate()
+	effect.global_position = spawn_position
+	get_tree().current_scene.add_child(effect)
+
+func spawn_code_bubble(spawn_position: Vector2):
+	var bubble = preload("res://bubble_effect.tscn").instantiate()
+	var offset = Vector2(
+		randf_range(-22, 22),
+		randf_range(-10, 10)
+	)
+	bubble.global_position = spawn_position + offset
+	bubble.scale.x = randf_range(0.03, 0.09)
+	bubble.scale.y = bubble.scale.x
+	get_tree().current_scene.add_child(bubble)

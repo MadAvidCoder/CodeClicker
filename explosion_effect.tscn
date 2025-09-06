@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkng7pxb63x0e"]
+
+[ext_resource type="Script" uid="uid://dii21gep871ci" path="res://explosion_effect.gd" id="1_4i723"]
+[ext_resource type="Texture2D" uid="uid://cia5ojocyew7x" path="res://shockwave.png" id="2_nejuc"]
+
+[sub_resource type="Gradient" id="Gradient_4i723"]
+offsets = PackedFloat32Array(0, 0.700599, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.34, 0.34, 0.34, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_tcegh"]
+offsets = PackedFloat32Array(0.131737, 0.371257, 0.54491, 0.706587, 0.802395, 0.976048)
+colors = PackedColorArray(0.36, 0.102, 0, 1, 0.59, 0.118, 0, 1, 0.75, 0.45425, 0.0675, 1, 0.81, 0.257175, 0.0729, 1, 0.31, 0.177475, 0.1333, 1, 0.06, 0.03975, 0.033, 1)
+
+[sub_resource type="Animation" id="Animation_nejuc"]
+resource_name = "shockwave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shockwave:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.705882), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wupqs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shockwave:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.705882)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wupqs"]
+_data = {
+&"RESET": SubResource("Animation_wupqs"),
+&"shockwave": SubResource("Animation_nejuc")
+}
+
+[node name="ExplosionEffect" type="Node2D"]
+script = ExtResource("1_4i723")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.6
+spread = 180.0
+initial_velocity_min = 700.0
+initial_velocity_max = 900.0
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_4i723")
+color_initial_ramp = SubResource("Gradient_tcegh")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wupqs")
+}
+
+[node name="Shockwave" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_nejuc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

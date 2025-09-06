@@ -1,13 +1,40 @@
-[gd_scene load_steps=11 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=20 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bh3guruokncf6" path="res://matrix.tscn" id="2_dg77c"]
 [ext_resource type="BitMap" uid="uid://bxin2asb7nbj0" path="res://keyboard_map.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://7cd601pdlh3p" path="res://one.png" id="3_efxa6"]
+[ext_resource type="Script" uid="uid://bf718qmkbpj1n" path="res://code_scroller.gd" id="3_ycdy4"]
 [ext_resource type="Script" uid="uid://b3f21sr2ldxmy" path="res://texture_button.gd" id="4_1bvp3"]
 [ext_resource type="FontFile" uid="uid://d1o7fr6w7chnu" path="res://CourierPrime-Bold.ttf" id="5_272bh"]
 [ext_resource type="Script" uid="uid://d31pji8vuw1f6" path="res://achievement_display.gd" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://bsto2oua251w6" path="res://scanlines.gdshader" id="6_7mycd"]
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dgxekk4fp5li0" path="res://zero.png" id="10_4c57u"]
+[ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("6_7mycd")
+shader_parameter/rect_size = Vector2(1152, 648)
+shader_parameter/scanline_spacing = 0.03
+shader_parameter/scanline_speed = 2.0
+shader_parameter/scanline_strength = 0.8
+shader_parameter/curvature_x = 0.14
+shader_parameter/curvature_y = 0.09
+shader_parameter/vignette_strength = 0.8
+shader_parameter/glow_strength = 0.1
+shader_parameter/background_green = Vector3(0, 0.07, 0.025)
+shader_parameter/text_green = Vector3(0.076, 0.27, 0.119)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dg77c"]
+viewport_path = NodePath("MatrixViewport")
+
+[sub_resource type="Gradient" id="Gradient_efxa6"]
+colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_dg77c"]
+colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("6_7mycd")
@@ -41,6 +68,83 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="CRTBackground" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dg77c")
+layout_mode = 0
+offset_left = -71.0
+offset_top = -42.0
+offset_right = 1109.0
+offset_bottom = 688.0
+color = Color(0.0666667, 0.0901961, 0.0666667, 1)
+
+[node name="CodeScroller" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("3_ycdy4")
+
+[node name="Label" type="Label" parent="CodeScroller"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_efxa6")
+
+[node name="ColorRect" type="ColorRect" parent="CodeScroller"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.556863)
+
+[node name="MatrixTexture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 2304.0
+offset_bottom = 1296.0
+scale = Vector2(0.6, 0.6)
+texture = SubResource("ViewportTexture_dg77c")
+
+[node name="ZeroParticles" type="CPUParticles2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(438.5, 0)
+emitting = false
+amount = 75
+texture = ExtResource("10_4c57u")
+lifetime = 7.5
+randomness = 0.75
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+spread = 60.0
+gravity = Vector2(0, 15)
+initial_velocity_min = 40.0
+initial_velocity_max = 65.0
+scale_amount_min = 0.6
+scale_amount_max = 0.7
+color_ramp = SubResource("Gradient_efxa6")
+
+[node name="OneParticles" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(438.5, 0)
+emitting = false
+amount = 75
+texture = ExtResource("3_efxa6")
+lifetime = 7.5
+randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+gravity = Vector2(0, 15)
+initial_velocity_min = 40.0
+initial_velocity_max = 65.0
+scale_amount_min = 0.6
+scale_amount_max = 0.7
+color_ramp = SubResource("Gradient_dg77c")
+
 [node name="TextureButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 1
@@ -73,9 +177,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -237.0
-offset_top = 40.0
+offset_top = 39.0
 offset_right = -39.0
-offset_bottom = 81.0
+offset_bottom = 85.0
 grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
 theme_override_fonts/font = ExtResource("5_272bh")
@@ -83,8 +187,25 @@ theme_override_font_sizes/font_size = 40
 text = "0 Lines"
 horizontal_alignment = 1
 
+[node name="FlairLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.5
+offset_top = 92.0
+offset_right = -25.5
+offset_bottom = 138.0
+grow_horizontal = 2
+pivot_offset = Vector2(99, 16)
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 25
+text = "0 Flair Credits"
+horizontal_alignment = 1
+
 [node name="AchievementDisplay" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_left = -138.0
 offset_right = -98.0
@@ -109,7 +230,6 @@ offset_bottom = -412.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(125, 42)
-color = Color(0.0657, 0.09, 0.0657, 1)
 
 [node name="Label" type="RichTextLabel" parent="AchievementDisplay/SubViewport"]
 offset_left = 6.5
@@ -161,10 +281,10 @@ grow_horizontal = 2
 pivot_offset = Vector2(99, 16)
 theme_override_fonts/font = ExtResource("5_272bh")
 theme_override_font_sizes/font_size = 40
-text = "UPGRADES"
+text = "THE TOOLBOX"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+[node name="TabContainer" type="TabContainer" parent="Shop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,17 +292,93 @@ anchor_bottom = 1.0
 offset_top = 94.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_272bh")
+theme_override_font_sizes/font_size = 18
+tab_alignment = 1
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="TOOLS" type="ScrollContainer" parent="Shop/TabContainer"]
+layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
+metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/TOOLS"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="PlaceholderItem" parent="Shop/TabContainer/TOOLS/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="FLAIRS" type="TabContainer" parent="Shop/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/side_margin = 4
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 14
+current_tab = 0
+tab_focus_mode = 0
+metadata/_tab_index = 1
+
+[node name="Backgrounds" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Backgrounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Backgrounds/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="Cursors" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+visible = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Cursors"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Cursors/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
+[node name="Effects" type="ScrollContainer" parent="Shop/TabContainer/FLAIRS"]
+visible = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/TabContainer/FLAIRS/Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Effects/VBoxContainer" instance_placeholder="res://item.tscn"]
+layout_mode = 2
+
 [node name="AutoCoderTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="MatrixViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2304, 1296)
+
+[node name="MatrixRain" parent="MatrixViewport" instance=ExtResource("2_dg77c")]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
