@@ -573,14 +573,14 @@ func _ready():
 		shop_container.add_child(i)
 		i.setup_upgrade(upgrade["name"], upgrade["description"], upgrade["cost"], upgrade["effect"], upgrade["price_multiplier"], upgrade["max_owned"])
 	for cos_type in cosmetics.keys():
-		for cos in cosmetics[cos_type]:
+		for cosm in cosmetics[cos_type]:
 			var i = item.instantiate()
 			match cos_type:
 				"background": background_flair_container.add_child(i) 
 				"cursor": cursors_flair_container.add_child(i)
 				"click_effect": effects_flair_container.add_child(i)
 				"sound_pack": sounds_flair_container.add_child(i)
-			i.setup_cosmetic(cos["name"], cos["description"], cos["cost"], cos["preview"], cos_type)
+			i.setup_cosmetic(cosm["name"], cosm["description"], cosm["cost"], cosm["preview"], cos_type)
 
 func _process(_delta: float) -> void:
 	label.text = str(int(floor(score))) + " Lines"
@@ -599,6 +599,7 @@ func _input(event):
 		match cur_effect:
 			"spark": spawn_spark_effect(event.position)
 			"bubbles": spawn_code_bubble(event.position)
+			"explosion": spawn_explosion_effect(event.position)
 
 func check_unlock(requirements: Dictionary) -> bool:
 	if requirements.has("no_upgrades") and upgrades_bought > 0:
@@ -694,6 +695,7 @@ func set_cosmetic(type, what):
 			match what:
 				"Spark Click": cur_effect = "spark"
 				"Code Bubbles": cur_effect = "bubbles"
+				"Mini Explosion": cur_effect = "explosion"
 		"sound_pack": print("unknown costmetic: " + what)
 
 func set_terminal_block_cursor():
@@ -702,19 +704,24 @@ func set_terminal_block_cursor():
 	var tex = ImageTexture.create_from_image(image)
 	Input.set_custom_mouse_cursor(tex)
 
-func spawn_spark_effect(position: Vector2):
+func spawn_spark_effect(spawn_position: Vector2):
 	var effect = preload("res://spark_effect.tscn").instantiate()
-	effect.global_position = position
+	effect.global_position = spawn_position
 	get_tree().current_scene.add_child(effect)
 	effect.emitting = true
 
-func spawn_code_bubble(position: Vector2):
+func spawn_explosion_effect(spawn_position: Vector2):
+	var effect = preload("res://explosion_effect.tscn").instantiate()
+	effect.global_position = spawn_position
+	get_tree().current_scene.add_child(effect)
+
+func spawn_code_bubble(spawn_position: Vector2):
 	var bubble = preload("res://bubble_effect.tscn").instantiate()
 	var offset = Vector2(
 		randf_range(-22, 22),
 		randf_range(-10, 10)
 	)
-	bubble.global_position = position + offset
+	bubble.global_position = spawn_position + offset
 	bubble.scale.x = randf_range(0.03, 0.09)
 	bubble.scale.y = bubble.scale.x
 	get_tree().current_scene.add_child(bubble)

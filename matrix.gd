@@ -2,7 +2,7 @@ extends Node
 
 var timer : Timer = null
 var random = RandomNumberGenerator.new()
-const column_width : int = 30
+const column_width = 30.0
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
@@ -17,7 +17,7 @@ func ready():
 
 func create_random_rain_column():
 	var screen_width = get_tree().get_root().size.x * 2
-	var columns = screen_width / column_width
-	var column = random.randi_range(0, columns - 1)
+	var max_columns = floor(screen_width / column_width)
+	var column = random.randi_range(0, max_columns - 1)
 	
 	add_child(RainColumn.new(column * column_width))
