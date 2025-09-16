@@ -77,6 +77,8 @@ func _on_button_pressed() -> void:
 	button.text = "Loading..."
 	button.disabled = true
 	line_edit.editable = false
+	if line_edit.text == "":
+		line_edit.text = "<NULL>"
 	user = line_edit.text
 	req_buf.append(["add", line_edit.text, main.score])
 
