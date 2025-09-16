@@ -482,6 +482,7 @@ var cur_effect = null
 @onready var matrix_generator = $MatrixViewport/MatrixRain
 @onready var crt_background = $CRTBackground
 @onready var code_scroller = $CodeScroller
+@onready var audio = $Audio
 
 var neon_tex
 
@@ -563,6 +564,7 @@ func _on_texture_button_pressed() -> void:
 	clicks += 1
 	recent_clicks_timestamps.append(Time.get_ticks_msec() / 1000.0)
 	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
+	audio.play_click()
 
 func count_time(timestamps, timeframe):
 	var now = Time.get_ticks_msec() / 1000.0
