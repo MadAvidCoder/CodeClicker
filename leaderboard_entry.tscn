@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ved0kr77uvo"]
+
+[ext_resource type="FontFile" uid="uid://d1o7fr6w7chnu" path="res://CourierPrime-Bold.ttf" id="1_rqmqv"]
+
+[node name="LeaderboardEntry" type="HBoxContainer"]
+
+[node name="Index" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqmqv")
+theme_override_font_sizes/font_size = 26
+text = "# 1"
+clip_text = true
+
+[node name="Username" type="Label" parent="."]
+custom_minimum_size = Vector2(630, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqmqv")
+theme_override_font_sizes/font_size = 26
+text = "Loading..."
+clip_text = true
+
+[node name="Score" type="Label" parent="."]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rqmqv")
+theme_override_font_sizes/font_size = 26
+text = "--- Lines"
+horizontal_alignment = 2
+clip_text = true
