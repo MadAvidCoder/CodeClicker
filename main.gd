@@ -509,7 +509,10 @@ func _ready():
 			i.setup_cosmetic(cosm["name"], cosm["description"], cosm["cost"], cosm["preview"], cos_type)
 
 func _process(_delta: float) -> void:
-	label.text = str(int(floor(score))) + " Lines"
+	if score > 100000000000000:
+		score = 100000000000000
+	else:
+		label.text = str(int(floor(score))) + " Lines"
 	check_achievements()
 	cleanup_timestamps()
 

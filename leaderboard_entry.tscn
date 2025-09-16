@@ -13,7 +13,7 @@ text = "# 1"
 clip_text = true
 
 [node name="Username" type="Label" parent="."]
-custom_minimum_size = Vector2(630, 0)
+custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rqmqv")
 theme_override_font_sizes/font_size = 26
@@ -21,7 +21,7 @@ text = "Loading..."
 clip_text = true
 
 [node name="Score" type="Label" parent="."]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rqmqv")
 theme_override_font_sizes/font_size = 26
