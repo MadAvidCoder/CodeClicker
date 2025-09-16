@@ -34,7 +34,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				"add":
 					button.text = "Already Joined!"
 					button.disabled = true
-					req_buf.append(["fetch"])
+					var leaderboard = json.data
+					update_leaderboard_display(leaderboard)
 		else:
 			print("Failed to parse leaderboard data.")
 	else:
