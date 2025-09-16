@@ -482,6 +482,7 @@ var cur_effect = null
 @onready var matrix_generator = $MatrixViewport/MatrixRain
 @onready var crt_background = $CRTBackground
 @onready var code_scroller = $CodeScroller
+@onready var audio = $Audio
 
 var neon_tex
 
@@ -508,7 +509,10 @@ func _ready():
 			i.setup_cosmetic(cosm["name"], cosm["description"], cosm["cost"], cosm["preview"], cos_type)
 
 func _process(_delta: float) -> void:
-	label.text = str(int(floor(score))) + " Lines"
+	if score > 100000000000000:
+		score = 100000000000000
+	else:
+		label.text = str(int(floor(score))) + " Lines"
 	check_achievements()
 	cleanup_timestamps()
 
@@ -563,6 +567,7 @@ func _on_texture_button_pressed() -> void:
 	clicks += 1
 	recent_clicks_timestamps.append(Time.get_ticks_msec() / 1000.0)
 	recent_lines_timestamps.append(Time.get_ticks_msec() / 1000.0)
+	audio.play_click()
 
 func count_time(timestamps, timeframe):
 	var now = Time.get_ticks_msec() / 1000.0

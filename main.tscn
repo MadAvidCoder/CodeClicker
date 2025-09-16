@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cptlju1gnm5mp"]
+[gd_scene load_steps=26 format=3 uid="uid://cptlju1gnm5mp"]
 
 [ext_resource type="Texture2D" uid="uid://diopqt72p3ruh" path="res://keyboard.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dwi0lut8phaek" path="res://main.gd" id="1_h2yge"]
@@ -13,6 +13,11 @@
 [ext_resource type="FontFile" uid="uid://dhywo2ihbh4n1" path="res://OpenSans-SemiBold.ttf" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dgxekk4fp5li0" path="res://zero.png" id="10_4c57u"]
 [ext_resource type="FontFile" uid="uid://bnls3d2ut4gkj" path="res://CourierPrime-Regular.ttf" id="10_efxa6"]
+[ext_resource type="Script" uid="uid://b8g0y6gotxkr8" path="res://audio.gd" id="14_w48qg"]
+[ext_resource type="Shader" uid="uid://djogp3xcs6k14" path="res://invert.gdshader" id="15_2cqfq"]
+[ext_resource type="Script" uid="uid://745q22wr6a00" path="res://leaderboard.gd" id="15_cegan"]
+[ext_resource type="Texture2D" uid="uid://pkrcjs8rex5q" path="res://podium.png" id="15_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dnjkptkdnbh2u" path="res://close.png" id="15_yaehf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
 shader = ExtResource("6_7mycd")
@@ -35,6 +40,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
 
 [sub_resource type="Gradient" id="Gradient_dg77c"]
 colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cqfq"]
+shader = ExtResource("15_2cqfq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("6_7mycd")
@@ -203,6 +211,20 @@ theme_override_font_sizes/font_size = 25
 text = "0 Flair Credits"
 horizontal_alignment = 1
 
+[node name="LeaderButton" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_2cqfq")
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 542.0
+offset_bottom = 542.0
+scale = Vector2(0.12, 0.12)
+texture_normal = ExtResource("15_vivmo")
+texture_pressed = ExtResource("15_vivmo")
+texture_hover = ExtResource("15_vivmo")
+texture_disabled = ExtResource("15_vivmo")
+texture_focused = ExtResource("15_vivmo")
+
 [node name="AchievementDisplay" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -370,6 +392,88 @@ size_flags_vertical = 3
 [node name="PlaceholderItem" parent="Shop/TabContainer/FLAIRS/Effects/VBoxContainer" instance_placeholder="res://item.tscn"]
 layout_mode = 2
 
+[node name="Leaderboard" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_cegan")
+
+[node name="ColorRect" type="ColorRect" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.882353)
+
+[node name="Label" type="Label" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 38.16
+offset_right = 132.0
+offset_bottom = 84.16
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_272bh")
+theme_override_font_sizes/font_size = 40
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="Leaderboard"]
+material = SubResource("ShaderMaterial_2cqfq")
+layout_mode = 0
+offset_left = 26.6
+offset_top = 26.6
+offset_right = 410.6
+offset_bottom = 410.6
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("15_yaehf")
+texture_pressed = ExtResource("15_yaehf")
+texture_hover = ExtResource("15_yaehf")
+texture_disabled = ExtResource("15_yaehf")
+texture_focused = ExtResource("15_yaehf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Leaderboard"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 113.0
+offset_right = 1097.0
+offset_bottom = 521.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="Leaderboard"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 565.0
+offset_right = 561.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("10_efxa6")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Your Username"
+max_length = 35
+
+[node name="Button" type="Button" parent="Leaderboard"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 565.0
+offset_right = 800.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("5_272bh")
+theme_override_font_sizes/font_size = 20
+text = "Join Leaderboard!"
+
 [node name="AutoCoderTimer" type="Timer" parent="."]
 autostart = true
 
@@ -380,7 +484,17 @@ size = Vector2i(2304, 1296)
 
 [node name="MatrixRain" parent="MatrixViewport" instance=ExtResource("2_dg77c")]
 
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+script = ExtResource("14_w48qg")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="LeaderButton" to="Leaderboard" method="_on_leader_button_pressed"]
 [connection signal="timeout" from="AchievementDisplay/Timer" to="AchievementDisplay" method="_on_timer_timeout"]
+[connection signal="pressed" from="Leaderboard/CloseButton" to="Leaderboard" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Leaderboard/Button" to="Leaderboard" method="_on_button_pressed"]
 [connection signal="timeout" from="AutoCoderTimer" to="." method="_on_auto_coder_timer_timeout"]
+[connection signal="request_completed" from="HTTPRequest" to="Leaderboard" method="_on_HTTPRequest_request_completed"]
