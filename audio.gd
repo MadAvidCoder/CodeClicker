@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var click_sounds = [
+const click_sounds: Array[Resource] = [
 	preload("res://audio/keyboard/key-01.mp3"),
 	preload("res://audio/keyboard/key-02.mp3"),
 	preload("res://audio/keyboard/key-03.mp3"),
