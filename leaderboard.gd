@@ -7,8 +7,12 @@ extends Control
 @onready var main = $".."
 @onready var button = $Button
 
+var joined = false
 var req_buf = []
 var cur_req = null
+var last = 0
+var last_score
+var user
 
 func _process(delta: float) -> void:
 	if not cur_req and len(req_buf) != 0:
@@ -17,6 +21,13 @@ func _process(delta: float) -> void:
 		match cur_req:
 			"fetch": fetch_leaderboard()
 			"add": submit_score(req[1], req[2])
+	if joined:
+		last += delta
+		if last > 5:
+			if last_score != main.score:
+				last_score = main.score
+				last = 0
+				req_buf.append(["add", user, main.score])
 
 func fetch_leaderboard():
 	var url = "https://clicker.madavidcoder.hackclub.app/leaderboard"
@@ -34,6 +45,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				"add":
 					button.text = "Already Joined!"
 					button.disabled = true
+					joined = true
 					var leaderboard = json.data
 					update_leaderboard_display(leaderboard)
 		else:
@@ -64,6 +76,8 @@ func add(place: int, username: String, score: int):
 func _on_button_pressed() -> void:
 	button.text = "Loading..."
 	button.disabled = true
+	line_edit.editable = false
+	user = line_edit.text
 	req_buf.append(["add", line_edit.text, main.score])
 
 func update_leaderboard_display(data):
@@ -76,7 +90,10 @@ func _on_close_button_pressed() -> void:
 	hide()
 
 func _on_leader_button_pressed() -> void:
-	req_buf.append(["fetch"])
+	if joined:
+		req_buf.append(["add", user, main.score])
+	else:
+		req_buf.append(["fetch"])
 	for child in container.get_children():
 		child.queue_free()
 	var card = entry.instantiate()
