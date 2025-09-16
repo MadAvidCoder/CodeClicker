@@ -488,9 +488,13 @@ size = Vector2i(2304, 1296)
 volume_db = -20.0
 script = ExtResource("14_w48qg")
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="LeaderButton" to="Leaderboard" method="_on_leader_button_pressed"]
 [connection signal="timeout" from="AchievementDisplay/Timer" to="AchievementDisplay" method="_on_timer_timeout"]
 [connection signal="pressed" from="Leaderboard/CloseButton" to="Leaderboard" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Leaderboard/Button" to="Leaderboard" method="_on_button_pressed"]
 [connection signal="timeout" from="AutoCoderTimer" to="." method="_on_auto_coder_timer_timeout"]
+[connection signal="request_completed" from="HTTPRequest" to="Leaderboard" method="_on_HTTPRequest_request_completed"]
