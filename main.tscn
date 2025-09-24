@@ -227,7 +227,6 @@ texture_focused = ExtResource("15_vivmo")
 
 [node name="AchievementDisplay" type="Control" parent="."]
 visible = false
-layout_mode = 3
 anchors_preset = 0
 offset_left = -138.0
 offset_right = -98.0
@@ -258,10 +257,10 @@ offset_left = 6.5
 offset_right = 306.5
 offset_bottom = 100.0
 theme_override_fonts/normal_font = ExtResource("7_5vw27")
-theme_override_fonts/mono_font = ExtResource("7_5vw27")
-theme_override_fonts/italics_font = ExtResource("7_5vw27")
-theme_override_fonts/bold_italics_font = ExtResource("7_5vw27")
 theme_override_fonts/bold_font = ExtResource("7_5vw27")
+theme_override_fonts/bold_italics_font = ExtResource("7_5vw27")
+theme_override_fonts/italics_font = ExtResource("7_5vw27")
+theme_override_fonts/mono_font = ExtResource("7_5vw27")
 fit_content = true
 vertical_alignment = 1
 
