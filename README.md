@@ -9,9 +9,9 @@
 ![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fmadavidcoder.github.io%2FCodeClicker)
 
 <div>
-<img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c282c5de741960368a1d4b1fb108aaf422b6253f_image.png" width="270"/>
-<img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/52931fa0da3d2d81db4f6008a2994d6ea4ca64e1_image.png" width="270"/>
-<img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0941e18da921a5b82ff9caf131ad12cefb671503_image.png" width="270"/>
+<img src="https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/c282c5de741960368a1d4b1fb108aaf422b6253f_image.png" width="270"/>
+<img src="https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/52931fa0da3d2d81db4f6008a2994d6ea4ca64e1_image.png" width="270"/>
+<img src="https://cdn.hackclub.com/rescue?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/0941e18da921a5b82ff9caf131ad12cefb671503_image.png" width="270"/>
 </div>
 
 ### Play it [here](https://madavidcoder.github.io/CodeClicker)!
